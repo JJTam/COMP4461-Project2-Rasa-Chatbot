@@ -146,3 +146,10 @@ nlu:
     - Is walking once a day enough exercise?
     - How much exercise should I do every day?
     - How many times per week should I go to the gym?
+
+- intent: ask_movie
+  examples : |
+    - Is there any good movie?
+    - I am bored. Can you recommend some films for me?
+    - Anything fun to watch?
+    - It's movie time!
