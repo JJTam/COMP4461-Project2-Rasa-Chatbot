@@ -10,6 +10,8 @@ import json
 import os
 import pandas as pd
 
+import os
+
 # load_dotenv()
 
 # airtable_api_key=os.getenv("AIRTABLE_API_KEY")
@@ -101,8 +103,9 @@ class ActionFindMovie(Action):
     ) -> List[Dict]:
 
     ####TODO: searching at csv - specific format of input as a dict(/) of [id, name]?
-        genre = tracker.get_slot("genre")
-        df = pd.read_csv('tmdb_5000_movies.csv', sep=',', usecols = ['title', 'genre'])
+        genre = tracker.get_slot("movie")
+        #print(genre)
+        df = pd.read_csv(os.path.dirname(os.path.realpath(__file__))+'/tmdb_5000_movies.csv', sep=',', usecols = ['title', 'genres'])
         df = df[df['genres'].str.contains(genre, case=False)]
         df_selected = df.sample(n=5)
         recommendation_list = df_selected['title'].to_list()

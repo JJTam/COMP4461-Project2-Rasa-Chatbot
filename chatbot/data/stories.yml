@@ -43,52 +43,81 @@ stories:
   - intent: ask_movie
   - action: utter_suggest_movie
   - intent: affirm
-  - action: uttter_ask_movie_genre
-  #- intent: info
+  - action: utter_ask_movie_genre
+  - intent: info
   #- slot_was_set:
   #  - request_slot: genre
-  #- action: utter_goodbye
-  #- action: action_find_movie
+  - action: utter_goodbye
+  - action: action_find_movie
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
+#   - slot_was_set:
+#     - requested_slot: confirm_exercise
+#   - slot_was_set:
+#     - confirm_exercise: true
+#   - slot_was_set:
+#     - requested_slot: exercise
+#   - slot_was_set:
+#     - exercise: hiking
+#   - slot_was_set:
+#     - exercise: hiking
+#   - slot_was_set:
+#     - requested_slot: sleep
+#   - slot_was_set:
+#     - sleep: 8 hours
+#   - slot_was_set:
+#     - sleep: 8 hours
+#   - slot_was_set:
+#     - requested_slot: stress
+#   - slot_was_set:
+#     - stress: high
+#   - slot_was_set:
+#     - stress: high
+#   - slot_was_set:
+#     - requested_slot: diet
+#   - slot_was_set:
+#     - diet: no
+#   - slot_was_set:
+#     - requested_slot: goal
+#   - slot_was_set:
+#     - goal: finish the rasa tutorial
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_submit_results
+#   - action: utter_slots_values
 
 - story: interactive_story_1
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: ask_movie
+  - action: utter_suggest_movie
   - intent: affirm
-  - action: health_form
-  - active_loop: health_form
+  - action: utter_ask_movie_genre
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: affirm
+  - action: utter_ask_movie_genre
+  - intent: inform
+    entities:
+    - movie: western
   - slot_was_set:
-    - requested_slot: confirm_exercise
-  - slot_was_set:
-    - confirm_exercise: true
-  - slot_was_set:
-    - requested_slot: exercise
-  - slot_was_set:
-    - exercise: hiking
-  - slot_was_set:
-    - exercise: hiking
-  - slot_was_set:
-    - requested_slot: sleep
-  - slot_was_set:
-    - sleep: 8 hours
-  - slot_was_set:
-    - sleep: 8 hours
-  - slot_was_set:
-    - requested_slot: stress
-  - slot_was_set:
-    - stress: high
-  - slot_was_set:
-    - stress: high
-  - slot_was_set:
-    - requested_slot: diet
-  - slot_was_set:
-    - diet: no
-  - slot_was_set:
-    - requested_slot: goal
-  - slot_was_set:
-    - goal: finish the rasa tutorial
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: action_submit_results
-  - action: utter_slots_values
+    - movie: western
+  - action: action_find_movie
+  - intent: thankyou
+  - action: utter_no_worries
+  - action: utter_goodbye

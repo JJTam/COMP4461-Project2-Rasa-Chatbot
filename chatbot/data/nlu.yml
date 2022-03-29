@@ -9,6 +9,7 @@ nlu:
     - good evening
     - hey there
     - Hi
+    - Hi~
 - intent: goodbye
   examples: |
     - bye
@@ -33,6 +34,8 @@ nlu:
     - You bet
     - I sure did
     - more or less
+    - sure!
+    - sure sure
 - intent: deny
   examples: |
     - no
@@ -55,6 +58,7 @@ nlu:
     - sure thanks
     - thanks bye
     - thanks
+    - Thanks
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -103,7 +107,6 @@ nlu:
     - Get more exercise
     - I go [hiking](exercise)
     - [8 hours](sleep)
-    - [high](stress)
     - finish the rasa tutorial
     - I want to watch some [action](movie) movies
     - [Advanture](movie)!
@@ -118,6 +121,7 @@ nlu:
     - Something that is [romance](movie)
     - A [history](movie) film!
     - [Horror](movie)
+    - I want to watch some [western](movie) film
 - intent: out_of_scope
   examples: |
     - that's not what I want to do
@@ -159,10 +163,13 @@ nlu:
     - Is walking once a day enough exercise?
     - How much exercise should I do every day?
     - How many times per week should I go to the gym?
-
 - intent: ask_movie
-  examples : |
+  examples: |
     - Is there any good movie?
     - I am bored. Can you recommend some films for me?
     - Anything fun to watch?
     - It's movie time!
+    - I want to watch some movie
+    - I want towatch some movie
+    - I want to watch some films
+    - want some movies

@@ -3,23 +3,23 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false
 intents:
-- affirm
-- greet
-- deny
 - inform
-- goodbye
-- bot_challenge
+- affirm
 - thankyou
+- greet
+- ask_movie
+- goodbye
+- deny
+- bot_challenge
 - out_of_scope
 - ask_lower_stress
 - ask_eat_healthy
 - ask_exercise
-- ask_movie
 entities:
 - exercise
+- movie
 - sleep
 - stress
-#- genre
 slots:
   confirm_exercise:
     type: any
@@ -39,9 +39,9 @@ slots:
   goal:
     type: any
     influence_conversation: false
-  #genre:
-  #  type: text
-  #  influence_conversation: true
+  movie:
+    type: text
+    influence_conversation: false
 responses:
   utter_greet:
   - text: Hi! It's time for your daily wellness check. Tracking healthy habits is a great way to measure your progress over time. Would you like to answer a few questions about your health?
@@ -82,13 +82,17 @@ responses:
   - text: A healthy diet includes fruits and vegetables, whole grains, dairy, lean protein, and plant-based fats. While there is room in a healthy diet for treats, added sugar should be eaten sparingly. Aim for a variety of foods, and balance.
   utter_suggest_movie:
   - text: Sure I have some movies to recommend! :) Would you like some?
-  uttter_ask_movie_genre:
+  utter_ask_movie_genre:
   - text: What genre of movies do you like?
 actions:
+- action_find_movie
 - action_submit_results
-#- action_find_movie
+- utter_goodbye
 - utter_greet
+- utter_no_worries
 - utter_slots_values
+- utter_suggest_movie
+- utter_ask_movie_genre
 forms:
   health_form:
     confirm_exercise:
