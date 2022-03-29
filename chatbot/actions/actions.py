@@ -8,6 +8,7 @@ from rasa_sdk.forms import FormValidationAction
 import requests
 import json
 import os
+import pandas as pd
 
 # load_dotenv()
 
@@ -89,3 +90,42 @@ class ActionSubmitResults(Action):
         dispatcher.utter_message("Thanks, your answers have been recorded!")
         return []
 
+class ActionFindMovie(Action):
+    def name(self) -> Text:
+        return "action_find_movie"
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+
+    ####TODO: searching at csv - specific format of input as a dict(/) of [id, name]?
+        genre = tracker.get_slot("genre")
+        df = pd.read_csv('tmdb_5000_movies.csv', sep=',', usecols = ['title', 'genre'])
+        df = df[df['genres'].str.contains(genre, case=False)]
+        df_selected = df.sample(n=5)
+        recommendation_list = df_selected['title'].to_list()
+        message = "You can watch these:\n"
+        for i in range(5):
+            #message += 
+            message += str(i+1) + ". " + recommendation_list[i] + "\n"
+        #exercise = tracker.get_slot("exercise")
+        #sleep = tracker.get_slot("sleep")
+        #stress = tracker.get_slot("stress")
+        #diet = tracker.get_slot("diet")
+        #goal = tracker.get_slot("goal")
+
+        # response = create_health_log(
+        #         confirm_exercise=confirm_exercise,
+        #         exercise=exercise,
+        #         sleep=sleep,
+        #         stress=stress,
+        #         diet=diet,
+        #         goal=goal
+        #     )
+
+        #dispatcher.utter_message("Thanks, your answers have been recorded!")
+        dispatcher.utter_message(message)
+
+        return []

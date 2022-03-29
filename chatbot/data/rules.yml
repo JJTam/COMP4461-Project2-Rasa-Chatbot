@@ -43,4 +43,4 @@ rules:
   - rule: ask movie
     steps:
     - intent: ask_movie
-    - action: utter_movie_info
+    - action: utter_suggest_movie

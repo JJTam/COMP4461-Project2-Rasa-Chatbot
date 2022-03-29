@@ -105,6 +105,19 @@ nlu:
     - [8 hours](sleep)
     - [high](stress)
     - finish the rasa tutorial
+    - I want to watch some [action](movie) movies
+    - [Advanture](movie)!
+    - Why not some [western](movie) film?
+    - I love [animation](movie) :)
+    - [Crime](movie)
+    - Today I hope to see some [Fantasy](movie)
+    - I'm looking for [comedy](movie)
+    - Maybe some [triller](movie)
+    - Some films about [family](movie)
+    - Some classic [drama](movie)
+    - Something that is [romance](movie)
+    - A [history](movie) film!
+    - [Horror](movie)
 - intent: out_of_scope
   examples: |
     - that's not what I want to do

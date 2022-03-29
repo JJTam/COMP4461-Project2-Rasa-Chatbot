@@ -38,6 +38,18 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
+- story: movie_story
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: affirm
+  - action: uttter_ask_movie_genre
+  #- intent: info
+  #- slot_was_set:
+  #  - request_slot: genre
+  #- action: utter_goodbye
+  #- action: action_find_movie
+
 - story: interactive_story_1
   steps:
   - intent: greet

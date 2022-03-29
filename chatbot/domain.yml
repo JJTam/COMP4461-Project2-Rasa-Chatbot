@@ -19,6 +19,7 @@ entities:
 - exercise
 - sleep
 - stress
+#- genre
 slots:
   confirm_exercise:
     type: any
@@ -38,6 +39,9 @@ slots:
   goal:
     type: any
     influence_conversation: false
+  #genre:
+  #  type: text
+  #  influence_conversation: true
 responses:
   utter_greet:
   - text: Hi! It's time for your daily wellness check. Tracking healthy habits is a great way to measure your progress over time. Would you like to answer a few questions about your health?
@@ -76,10 +80,13 @@ responses:
   - text: Most healthy adults should aim to get about 150 min of moderate exercise per week. This includes activities like a brisk walk or yard work.
   utter_diet_info:
   - text: A healthy diet includes fruits and vegetables, whole grains, dairy, lean protein, and plant-based fats. While there is room in a healthy diet for treats, added sugar should be eaten sparingly. Aim for a variety of foods, and balance.
-  utter_movie_info:
-  - text: Sure I have some movies to recommend! :)
+  utter_suggest_movie:
+  - text: Sure I have some movies to recommend! :) Would you like some?
+  uttter_ask_movie_genre:
+  - text: What genre of movies do you like?
 actions:
 - action_submit_results
+#- action_find_movie
 - utter_greet
 - utter_slots_values
 forms:
