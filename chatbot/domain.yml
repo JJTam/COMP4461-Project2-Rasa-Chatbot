@@ -3,14 +3,15 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false
 intents:
-- ask_movie
 - inform
+- inform_key
+- ask_movie
 - affirm
+- deny
+- greet
 - thankyou
 - goodbye
 - stop
-- greet
-- deny
 - bot_challenge
 - out_of_scope
 - ask_lower_stress
@@ -19,6 +20,7 @@ intents:
 entities:
 - exercise
 - movie
+- movie_key
 - sleep
 - stress
 slots:
@@ -62,6 +64,9 @@ slots:
     - war
     - music
     - documentary
+  movie_key:
+    type: any
+    influence_conversation: false
 responses:
   utter_greet:
   - text: Hi! What can I help?
@@ -104,11 +109,14 @@ responses:
   - text: Sure I have some movies to recommend! :) Would you like some?
   utter_ask_movie_genre:
   - text: What genre of movies do you like?
+  utter_ask_movie_key:
+  - text: Is there any keyword you would like to look for in the movie recommendation?
 actions:
 - action_find_movie
 - action_submit_results
 - utter_ask_continue
 - utter_ask_movie_genre
+- utter_ask_movie_key
 - utter_goodbye
 - utter_greet
 - utter_no_worries
