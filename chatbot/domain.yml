@@ -3,12 +3,13 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false
 intents:
+- ask_movie
 - inform
 - affirm
 - thankyou
-- greet
-- ask_movie
 - goodbye
+- stop
+- greet
 - deny
 - bot_challenge
 - out_of_scope
@@ -40,8 +41,27 @@ slots:
     type: any
     influence_conversation: false
   movie:
-    type: text
-    influence_conversation: false
+    type: categorical
+    influence_conversation: true
+    values:
+    - action
+    - advanture
+    - western
+    - animation
+    - crime
+    - fantasy
+    - thriller
+    - comedy
+    - family
+    - drama
+    - romance
+    - history
+    - horror
+    - science fiction
+    - mystery
+    - war
+    - music
+    - documentary
 responses:
   utter_greet:
   - text: Hi! It's time for your daily wellness check. Tracking healthy habits is a great way to measure your progress over time. Would you like to answer a few questions about your health?
@@ -87,12 +107,13 @@ responses:
 actions:
 - action_find_movie
 - action_submit_results
+- utter_ask_continue
+- utter_ask_movie_genre
 - utter_goodbye
 - utter_greet
 - utter_no_worries
 - utter_slots_values
 - utter_suggest_movie
-- utter_ask_movie_genre
 forms:
   health_form:
     confirm_exercise:

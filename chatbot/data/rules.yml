@@ -40,7 +40,7 @@ rules:
     steps:
     - intent: ask_lower_stress
     - action: utter_stress_info
-  - rule: ask movie
-    steps:
-    - intent: ask_movie
-    - action: utter_suggest_movie
+  #- rule: ask movie
+  #  steps:
+  #  - intent: ask_movie
+  #  - action: utter_suggest_movie
