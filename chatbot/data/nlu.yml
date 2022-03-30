@@ -114,7 +114,7 @@ nlu:
     - [8 hours](sleep)
     - finish the rasa tutorial
     - I want to watch some [action](movie) movies
-    - [Advanture]{"entity": "movie", "value": "advanture"}!
+    - [Advanture]{"entity": "movie", "value": "adventure"}!
     - Why not some [western](movie) film?
     - I love [animation](movie) :)
     - [Crime]{"entity": "movie", "value": "crime"}
@@ -129,10 +129,10 @@ nlu:
     - I want to watch some [western](movie) film
     - stories about [lawbreakers]{"entity": "movie", "value": "crime"}
     - some [love]{"entity": "movie", "value": "romance"} stories
-    - something [exciting]{"entity": "movie", "value": "action"}
+    - something [exciting]{"entity": "movie", "value": "adventure"}
     - I want to watch some [western](movie) films
     - I want some [advanturous](movie) films
-    - What about some [advanturous]{"entity": "movie", "value": "advanture"} films?
+    - What about some [advanturous]{"entity": "movie", "value": "adventure"} films?
     - sone [advanture]{"entity": "movie", "value": "adventure"} movies?
     - Hi~ I want some [funny]{"entity": "movie", "value": "comedy"} films
     - what about some [cartoons]{"entity": "movie", "value": "animation"}?
@@ -147,7 +147,9 @@ nlu:
     - [vibsdivbiebchhc ie iue](movie)
     - [drama](movie)
     - [ancient]{"entity": "movie", "value": "history"} lengands
-    - I want some musicals
+    - Something that is about [wars]{"entity": "movie", "value": "war"}
+    - Thanks! What about some [musical]{"entity": "movie", "value": "music"} film?
+    - I am also looking for [non-fiction]{"entity": "movie", "value": "documentary"} films
 - intent: out_of_scope
   examples: |
     - that's not what I want to do
@@ -214,10 +216,17 @@ nlu:
     - Can you recommend some [sci-fic]{"entity": "movie", "value": "science fiction"} films?
     - I am finding mysterious movies
     - I am find some [mysterious]{"entity": "movie", "value": "mystery"} movies
-- synonym: advanture
+    - I am looking for [war](movie) films
+    - I am finding movies
+    - I am looking for some [war](movie) films
+    - I am looking for movies based on [real events]{"entity": "movie", "value": "documentary"}
+- synonym: adventure
   examples: |
     - Advanture
+    - exciting
     - advanturous
+    - advanture
+    - adventurous
 - synonym: crime
   examples: |
     - Crime
@@ -240,11 +249,6 @@ nlu:
   examples: |
     - love
     - romantic
-- synonym: adventure
-  examples: |
-    - exciting
-    - advanture
-    - adventurous
 - synonym: comedy
   examples: |
     - funny
@@ -263,6 +267,28 @@ nlu:
     - thrillers
     - thrilling
     - thrill
+- synonym: history
+  examples: |
+    - ancient
+    - historical
+- synonym: war
+  examples: |
+    - wars
+- synonym: music
+  examples: |
+    - musical
+- synonym: documentary
+  examples: |
+    - non-fiction
+    - documentaries
+    - real events
+    - real
+- synonym: science fiction
+  examples: |
+    - sci-fic
+- synonym: mystery
+  examples: |
+    - mysterious
 - synonym: action
   examples: |
     - Active
@@ -283,7 +309,3 @@ nlu:
   examples: |
     - dramatic
     - storied
-- synonym: history
-  examples: |
-    - historical
-    - ancient

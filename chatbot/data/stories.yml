@@ -1,42 +1,42 @@
 version: "2.0"
 stories:
-- story: survey happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: affirm
-  - action: health_form
-  - active_loop: health_form
-- story: survey stop
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: affirm
-  - action: health_form
-  - active_loop: health_form
-  - intent: out_of_scope
-  - action: utter_ask_continue
-  - intent: deny
-  - action: action_deactivate_loop
-  - active_loop: null
-  - action: utter_goodbye
-- story: survey continue
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: affirm
-  - action: health_form
-  - active_loop: health_form
-  - intent: out_of_scope
-  - action: utter_ask_continue
-  - intent: affirm
-  - action: health_form
-- story: no survey
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: deny
-  - action: utter_goodbye
+# - story: survey happy path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
+# - story: survey stop
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
+#   - intent: out_of_scope
+#   - action: utter_ask_continue
+#   - intent: deny
+#   - action: action_deactivate_loop
+#   - active_loop: null
+#   - action: utter_goodbye
+# - story: survey continue
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
+#   - intent: out_of_scope
+#   - action: utter_ask_continue
+#   - intent: affirm
+#   - action: health_form
+# - story: no survey
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: deny
+#   - action: utter_goodbye
 
 - story: movie_story
   steps:
@@ -385,3 +385,53 @@ stories:
   steps:
   - intent: inform
   - action: utter_ask_continue
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_movie
+    entities:
+    - movie: war
+  - slot_was_set:
+    - movie: war
+  - action: action_find_movie
+
+- story: interactive_story_2
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: inform
+    entities:
+    - movie: war
+  - slot_was_set:
+    - movie: war
+  - action: action_find_movie
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_movie
+    entities:
+    - movie: war
+  - slot_was_set:
+    - movie: war
+  - action: action_find_movie
+  - intent: inform
+    entities:
+    - movie: music
+  - slot_was_set:
+    - movie: music
+  - action: action_find_movie
+  - intent: inform
+    entities:
+    - movie: documentary
+  - slot_was_set:
+    - movie: documentary
+  - action: action_find_movie
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_movie
+    entities:
+    - movie: documentary
+  - slot_was_set:
+    - movie: documentary
+  - action: action_find_movie

@@ -64,9 +64,9 @@ slots:
     - documentary
 responses:
   utter_greet:
-  - text: Hi! It's time for your daily wellness check. Tracking healthy habits is a great way to measure your progress over time. Would you like to answer a few questions about your health?
+  - text: Hi! What can I help?
   utter_goodbye:
-  - text: See you tomorrow. Bye!
+  - text: See you later. Bye!
   utter_iamabot:
   - text: I am a bot, powered by Rasa.
   utter_ask_confirm_exercise:
