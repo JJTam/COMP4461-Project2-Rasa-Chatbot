@@ -1,0 +1,122 @@
+@font-face {
+    font-family: "Inter";
+    src: url('font/Inter-VariableFont_slnt\,wght.ttf');
+}
+
+.div {
+    font-family: "Inter",
+}
+
+.container {
+    padding: 0%;
+}
+
+.left-container {
+    height: min-content;
+    width: 35.9%;
+    margin: 0px 58.54% 0px 5.56%;
+}
+
+.right-container {
+    position: absolute;
+    top: 0px;
+    height: 900px;
+    width: 823px;
+    right: -6px;
+}
+
+.layout-1 {
+    height: min-content;
+    margin: 24px 0px;
+    flex-direction: column;
+}
+
+.flex {
+    display: flex;
+}
+
+.left-top-icon{
+    width: auto;
+    padding: 5px 0px;
+}
+
+.left-middle-container {
+    height: min-content;
+    margin: 18vh 2px 0 0px;
+}
+
+.topic-container {
+    position: relative;
+    height: min-content;
+}
+
+.button-group-container {
+    position: relative;
+    height: min-content;
+    margin: 30px 0px 0px;
+    cursor: pointer; 
+    float: left;
+    flex-direction: column;
+}
+
+.button1{
+    float: left;
+    position: relative;
+}
+
+.btn-flat-custom {
+    color: #ffffff;
+	background-color: #6072e6;
+    border-radius: 6px 6px 6px 6px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-reverse {
+    background-color: #EDEDFC;
+	color: #6072e6;
+    border-radius: 6px 6px 6px 6px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.right-background-layout {
+    position: absolute;
+    top: 0px;
+    height: 900px;
+    width: 823px;
+    right: -6px;
+}
+
+.btn-text {
+    font-size: 16px;
+    height: min-content;
+    text-align: center;
+    margin: 18px 5px 18px 0px;
+    width: 154px;
+}
+
+.title {
+    color: #7472e3;
+    font-weight: bolder;
+    font-size: 50px;
+    line-height: 60px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.02em;
+}
+
+.description {
+    font: 16px/1.5 "Inter", Helvetica, Arial, serif;
+    color: #4b5563;
+    letter-spacing: -0.32px;
+}
+
+
+
