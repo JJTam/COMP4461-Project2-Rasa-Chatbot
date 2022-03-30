@@ -36,6 +36,9 @@ nlu:
     - more or less
     - sure!
     - sure sure
+    - really?
+    - great
+    - nice
 - intent: deny
   examples: |
     - no
@@ -59,6 +62,8 @@ nlu:
     - thanks bye
     - thanks
     - Thanks
+    - Thanks~
+    - THanks~
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -109,19 +114,40 @@ nlu:
     - [8 hours](sleep)
     - finish the rasa tutorial
     - I want to watch some [action](movie) movies
-    - [Advanture](movie)!
+    - [Advanture]{"entity": "movie", "value": "advanture"}!
     - Why not some [western](movie) film?
     - I love [animation](movie) :)
-    - [Crime](movie)
-    - Today I hope to see some [Fantasy](movie)
+    - [Crime]{"entity": "movie", "value": "crime"}
+    - Today I hope to see some [Fantasy]{"entity": "movie", "value": "fantasy"}
     - I'm looking for [comedy](movie)
-    - Maybe some [triller](movie)
+    - Maybe some [thriller](movie)
     - Some films about [family](movie)
     - Some classic [drama](movie)
     - Something that is [romance](movie)
     - A [history](movie) film!
-    - [Horror](movie)
+    - [Horror]{"entity": "movie", "value": "horror"}
     - I want to watch some [western](movie) film
+    - stories about [lawbreakers]{"entity": "movie", "value": "crime"}
+    - some [love]{"entity": "movie", "value": "romance"} stories
+    - something [exciting]{"entity": "movie", "value": "action"}
+    - I want to watch some [western](movie) films
+    - I want some [advanturous](movie) films
+    - What about some [advanturous]{"entity": "movie", "value": "advanture"} films?
+    - sone [advanture]{"entity": "movie", "value": "adventure"} movies?
+    - Hi~ I want some [funny]{"entity": "movie", "value": "comedy"} films
+    - what about some [cartoons]{"entity": "movie", "value": "animation"}?
+    - I want some movies that make us [laugh]{"entity": "movie", "value": "comedy"}
+    - What about some [cartoons]{"entity": "movie", "value": "animation"}?
+    - I also want to watch some [thrillers]{"entity": "movie", "value": "thriller"}
+    - [cartoons]{"entity": "movie", "value": "animation"}
+    - [love]{"entity": "movie", "value": "romance"} stories
+    - Can you suggest some [funny]{"entity": "movie", "value": "comedy"} films?
+    - I want some [comedies]{"entity": "movie", "value": "comedy"}
+    - can you recommend some [thrillers]{"entity": "movie", "value": "thriller"} then?
+    - [vibsdivbiebchhc ie iue](movie)
+    - [drama](movie)
+    - [ancient]{"entity": "movie", "value": "history"} lengands
+    - I want some musicals
 - intent: out_of_scope
   examples: |
     - that's not what I want to do
@@ -173,3 +199,91 @@ nlu:
     - I want towatch some movie
     - I want to watch some films
     - want some movies
+    - moviw
+    - films
+    - movies
+    - I want to watch some [thrilling]{"entity": "movie", "value": "thriller"} movie
+    - I am looking for some movies
+    - Can you suggest some movies?
+    - can you sugest some [abc](movie) movie?
+    - Can you recommend some more films?
+    - Is there some [sbebviuweb owbibvoefvoi](movie) moovies?
+    - Is there some [historical]{"entity": "movie", "value": "history"} movies?
+    - Can you recommend some movies?
+    - Can you find me some [documentaries]{"entity": "movie", "value": "documentary"}?
+    - Can you recommend some [sci-fic]{"entity": "movie", "value": "science fiction"} films?
+    - I am finding mysterious movies
+    - I am find some [mysterious]{"entity": "movie", "value": "mystery"} movies
+- synonym: advanture
+  examples: |
+    - Advanture
+    - advanturous
+- synonym: crime
+  examples: |
+    - Crime
+    - lawbreakers
+    - criminal
+    - lawbreaker
+    - unlawful
+- synonym: fantasy
+  examples: |
+    - Fantasy
+    - fantastic
+    - mircale
+- synonym: horror
+  examples: |
+    - Horror
+    - scary
+    - horrible
+    - scaring
+- synonym: romance
+  examples: |
+    - love
+    - romantic
+- synonym: adventure
+  examples: |
+    - exciting
+    - advanture
+    - adventurous
+- synonym: comedy
+  examples: |
+    - funny
+    - laugh
+    - comedies
+    - fun
+    - hilarious
+    - laughter
+- synonym: animation
+  examples: |
+    - cartoons
+    - animated
+    - cartoon
+- synonym: thriller
+  examples: |
+    - thrillers
+    - thrilling
+    - thrill
+- synonym: action
+  examples: |
+    - Active
+    - gritty
+    - violent
+    - brutal
+    - fight
+- synonym: western
+  examples: |
+    - wild west
+    - old west
+    - american west
+- synonym: family
+  examples: |
+    - home
+    - families
+- synonym: drama
+  examples: |
+    - dramatic
+    - storied
+- synonym: history
+  examples: |
+    - historical
+    - ancient

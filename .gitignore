@@ -6,6 +6,5 @@
 
 .idea
 
-.vs/
 chatbot/actions/__pycache__
-
+.vs/
