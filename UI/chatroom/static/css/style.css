@@ -151,6 +151,7 @@ div.chats::-webkit-scrollbar-thumb:hover {
 }
 
 .keypad {
+	background: #ffffff;
 	height: 40px;
 	position: absolute;
 	bottom: 10px;
@@ -158,8 +159,7 @@ div.chats::-webkit-scrollbar-thumb:hover {
 }
 
 .usrInput {
-	background: #ffffff;
-	width: 100%;
+	width: 90%;
 	border: 0;
 	padding-left: 15px;
 	height: 50px;
@@ -247,4 +247,17 @@ video:focus {
 	align-items: center;
 	float: left;
 	margin-right: 10px;
+}
+.delivery-button {
+	padding: 10px 0 10px 0;
+	cursor: pointer;
+}
+
+img.enter-icon:hover {
+	transform: translateY(-1px);
+}
+
+img.enter-icon:active {
+	-webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
+  	transform: translateY(2px);
 }
