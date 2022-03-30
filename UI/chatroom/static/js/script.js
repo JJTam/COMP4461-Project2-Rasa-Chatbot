@@ -1,3 +1,7 @@
+// define some welcome text
+let welcome_text_1 = "Welcome! I'm QB. your virtual prtner in slef-quarantine."
+let welcome_text_2 = "I can search for the latest health related to COVID-19, provide movie recommandations, find workout programs/video for you to follow, or suggest some meal pans/recipes to you! what would you like to do today?"
+
 // on input/text enter--------------------------------------------------------------------------------------
 $(".usrInput").on("keyup keypress", function(e) {
   var keyCode = e.keyCode || e.which;
@@ -150,7 +154,7 @@ function addSuggestion(textToAdd) {
   }, 1000);
 }
 
-// on click of suggestions, get the value and send to rasa
+// on click of suggestions, get the value and send to rasa (this one is not yet ready)
 $(document).on("click", ".menu .menuChips", function() {
   var text = this.innerText;
   var payload = this.getAttribute("data-payload");
@@ -159,3 +163,9 @@ $(document).on("click", ".menu .menuChips", function() {
   send(payload);
   $(".suggestions").remove(); //delete the suggestions
 });
+
+//send welcome text
+$(document).ready(function(){
+	setBotResponse([{"recipient_id":"Me","text":welcome_text_1}]);
+	setBotResponse([{"recipient_id":"Me","text":welcome_text_2}]);
+})
