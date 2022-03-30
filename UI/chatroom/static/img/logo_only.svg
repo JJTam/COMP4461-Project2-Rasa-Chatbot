@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41" height="40" fill="none" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none" class="" style=""/>
+
+
+<defs>
+
+<filter id="filter1_d_0_1" x="42.104000091552734" y="12.560099601745605" width="157.33799743652344" height="60.6078987121582" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="11"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+</filter>
+<filter xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" id="f010" inkscape:label="Rubber stamp" x="0" y="0" width="1" height="1" inkscape:menu="Overlays" inkscape:menu-tooltip="Random whiteouts inside" color-interpolation-filters="sRGB">
+            <feTurbulence result="result1" baseFrequency=".064" numOctaves="4" type="fractalNoise"/>
+            <feGaussianBlur in="SourceAlpha" stdDeviation="4.9" result="result91"/>
+            <feComposite operator="out" in="SourceAlpha" in2="result91"/>
+            <feComposite in2="result1"/>
+            <feColorMatrix result="result1" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 20 -9"/>
+            <feComposite result="result1" operator="in" in="SourceGraphic" in2="result1"/>
+            <feTurbulence baseFrequency=".032" numOctaves="1" result="result92"/>
+            <feDisplacementMap scale="4.1" yChannelSelector="G" xChannelSelector="R" in="result1" in2="result92"/>
+        </filter></defs>
+<g class="currentLayer" style=""><title>Layer 1</title><g filter="" id="svg_1" class="">
+<path d="M36.3476,32.2976 C35.9505,31.9041 35.9585,31.284399999999998 36.2765,30.825699999999998 C38.4715,27.6588 39.7561,23.824199999999998 39.7561,19.692300000000003 C39.7561,8.816500000000001 30.8564,0 19.878,0 C8.8997,0 0,8.816500000000001 0,19.692300000000003 C0,27.9844 5.090900000000001,34.5455 12.4238,37.8462 C16.087699999999998,39.495400000000004 19.2727,40 24.226300000000002,40 C29.775100000000002,40 35.0258,38.7356 39.7008,36.481700000000004 C40.7273,35.9868 41.4545,35.1509 39.5113,34.2993 C39.0607,34.1018 38.6225,33.8814 38.1984,33.6396 C37.5124,33.2879 36.8886,32.8338 36.3476,32.2976 z" fill="#7573E3" id="svg_2" filter=""/>
+<path d="M12.363700000000001,14.818100000000001 C12.363700000000001,16.5753 11.549599999999998,17.999899999999997 10.545499999999997,17.999899999999997 C9.5413,17.999899999999997 8.7273,16.5753 8.7273,14.818100000000001 C8.7273,13.0608 9.5413,11.636199999999999 10.545499999999997,11.636199999999999 C11.549599999999998,11.636199999999999 12.363700000000001,13.0608 12.363700000000001,14.818100000000001 z" fill="white" id="svg_3" filter=""/>
+<path d="M21.091,14.818100000000001 C21.091,16.5753 20.276899999999998,17.999899999999997 19.272799999999997,17.999899999999997 C18.2686,17.999899999999997 17.4546,16.5753 17.4546,14.818100000000001 C17.4546,13.0608 18.2686,11.636199999999999 19.272799999999997,11.636199999999999 C20.276899999999998,11.636199999999999 21.091,13.0608 21.091,14.818100000000001 z" fill="white" id="svg_4" filter=""/>
+</g></g></svg>
