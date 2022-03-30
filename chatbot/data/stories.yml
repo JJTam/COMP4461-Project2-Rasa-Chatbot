@@ -938,3 +938,18 @@ stories:
   - slot_was_set:
     - movie_key: new
   - action: action_find_movie
+
+- story: interactive_story_1
+  steps:
+  - intent: inform
+    entities:
+    - movie: comedy
+  - slot_was_set:
+    - movie: comedy
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: ghost
+  - slot_was_set:
+    - movie_key: ghost
+  - action: action_find_movie

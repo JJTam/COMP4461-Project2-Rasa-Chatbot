@@ -99,6 +99,7 @@ nlu:
     - [French](movie_key)
     - [superhero](movie_key)
     - [new](movie_key)
+    - [ghost](movie_key)
 - intent: inform
   examples: |
     - a full [8 hours](sleep)
@@ -186,6 +187,7 @@ nlu:
     - [funny]{"entity": "movie", "value": "comedy"} movies
     - [action](movie)
     - [Advanture]{"entity": "movie", "value": "adventure"} movies
+    - I am looking for [funny]{"entity": "movie", "value": "comedy"} movies
 - intent: out_of_scope
   examples: |
     - that's not what I want to do

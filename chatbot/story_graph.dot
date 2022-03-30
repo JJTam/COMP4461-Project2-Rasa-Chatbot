@@ -5,8 +5,8 @@ digraph  {
 2 [class=active, fontsize=12, label=utter_ask_movie_key];
 3 [class=active, fontsize=12, label=action_find_movie];
 4 [class="intent dashed active", label="  ?  ", shape=rect];
-5 [class="intent active", fillcolor=lightblue, label="Advanture movies", shape=rect, style=filled];
-6 [class="intent active", fillcolor=lightblue, label=new, shape=rect, style=filled];
+5 [class="intent active", fillcolor=lightblue, label="I am looking for funny movies", shape=rect, style=filled];
+6 [class="intent active", fillcolor=lightblue, label=ghost, shape=rect, style=filled];
 0 -> "-1"  [class="", key=NONE, label=""];
 0 -> 1  [class=active, key=NONE, label=""];
 1 -> 5  [class=active, key=0];

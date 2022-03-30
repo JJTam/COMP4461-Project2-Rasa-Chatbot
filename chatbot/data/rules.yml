@@ -40,10 +40,10 @@ rules:
     steps:
     - intent: ask_lower_stress
     - action: utter_stress_info
-  - rule: ask movie key
-    condition:
-  - slot_was_set:
-    - key: null
-    steps:
-    - intent: ask_movie
-    - action: utter_suggest_movie
+  # - rule: ask movie key
+  #   condition:
+  # - slot_was_set:
+  #   - key: null
+  #   steps:
+  #   - intent: ask_movie
+  #   - action: utter_suggest_movie
