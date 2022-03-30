@@ -1,5 +1,29 @@
 version: "2.0"
 stories:
+- story: outOfScope_or_unSatisfied
+  steps:
+  - intent: out_of_scope
+  - action: utter_not_needed
+  - action: utter_goodbye
+- story: bookDoctor
+  steps:
+  - intent: healthAppointment
+  - action: utter_book_doctor
+  - action: utter_extra
+- story: get some health advice
+  steps:
+  - intent: healthAdvise
+  - action: utter_give_healthAdvice
+  - action: utter_more_advices
+  - intent: affirm
+  - action: utter_give_healthAdvice
+- story: less health advice
+  steps:
+  - intent: healthAdvise
+  - action: utter_give_healthAdvice
+  - action: utter_more_advices
+  - intent: deny
+  - action: utter_extra
 - story: survey happy path
   steps:
   - intent: greet
@@ -80,3 +104,59 @@ stories:
   - active_loop: null
   - action: action_submit_results
   - action: utter_slots_values
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: healthAdvise
+  - action: utter_give_healthAdvice
+  - action: ask_more_advices
+
+- story: interactive_story_1
+  steps:
+  - intent: healthAdvise
+  - action: utter_give_healthAdvice
+  - action: utter_more_advices
+  - intent: affirm
+  - action: utter_give_healthAdvice
+  - intent: wantCovidTest
+  - action: utter_confirm_covidTest
+  - intent: wantHealthInfo
+  - action: utter_confirm_healthInfo
+  - action: utter_present_healthInfo
+
+- story: interactive_story_1
+  steps:
+  - intent: checkHealth
+  - action: health_form
+  - active_loop: health_form
+  - slot_was_set:
+    - requested_slot: confirm_symptoms
+  - intent: inform
+
+- story: interactive_story_1
+  steps:
+  - intent: healthAppointment
+  - action: utter_book_doctor
+  - action: utter_extra
+  - intent: deny
+  - action: utter_goodbye
+  - intent: healthAdvise
+  - action: utter_give_healthAdvice
+  - action: utter_more_advices
+  - intent: affirm
+  - action: utter_give_healthAdvice
+  - action: utter_extra
+  - intent: wantCovidTest
+  - action: utter_confirm_covidTest
+  - action: utter_extra
+  - intent: healthAdvise
+  - action: utter_give_healthAdvice
+  - action: utter_more_advices
+  - action: utter_extra

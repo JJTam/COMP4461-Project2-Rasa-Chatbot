@@ -3,10 +3,15 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false
 intents:
+- healthAppointment
 - affirm
-- greet
+- healthAdvise
+- wantCovidTest
 - deny
+- checkHealth
 - inform
+- wantHealthInfo
+- greet
 - goodbye
 - bot_challenge
 - thankyou
@@ -37,15 +42,51 @@ slots:
   goal:
     type: any
     influence_conversation: false
+  confirm_symptoms:
+    type: any
+    influence_conversation: false
 responses:
   utter_greet:
-  - text: Hi! It's time for your daily wellness check. Tracking healthy habits is a great way to measure your progress over time. Would you like to answer a few questions about your health?
+  - text: Welcome! I'm QB, your virtual partner in self-quarantine.
+  utter_intro:
+  - text: I can search for the latest health information related to COVID-19, provide movie recommendations, find workout programs/videos for you to follow, or suggest some meal plans/recipes to you! What would you like to do today?
   utter_goodbye:
-  - text: See you tomorrow. Bye!
+  - text: Okay, see you!
   utter_iamabot:
-  - text: I am a bot, powered by Rasa.
+  - text: I am a bot, powered by Rasa, developed by UST Gang Gang.
+  utter_confirm_healthInfo:
+  - text: Okay! Here are some COVID-19 news':'
   utter_ask_confirm_exercise:
   - text: Did you exercise yesterday? Don't sweat it if you didn't run a marathon - walks count!
+  utter_confirm_symptoms:
+  - text: Are you having any obvious COVID-19 symptoms? (e.g. cough, fever, shorten breath...)
+  utter_present_healthInfo:
+  - text: 7,459 more people have infected today...
+  - text: (*important) New policy! All citizen are recommended to get the 3rd vaccination (see details in https://www.coronavirus.gov.hk/eng/index.html)
+  utter_confirm_covidTest:
+  - text: I have received your request! COVID-19 test kit on its way to your room! (arrival time:tmr 08:00)
+  utter_give_healthAdvice:
+  - text: Clean your hands frequently with alcohol-based hand rub or soap and water!
+  - text: Drink more water!
+  - text: Try to do some exercises!
+  - text: Try to eat healtier!
+  - text: Eat more vegetables!
+  - text: Stay positive!
+  utter_more_advices:
+  - text: Need more advices?
+  - text: Want another one?
+  utter_extra:
+  - text: Got it. Anything else?
+  - text: No problem! Anything else you would like to know?
+  - text: Okay~Anything else that need my help?
+  utter_not_needed:
+  - text: Got it, take care!
+  - text: Okay friend!
+  utter_book_doctor:
+  - text: Appointment made with Doctor Lee Chun Ho on next week Tue! (5/4/2022 14:00)
+  - text: Appointment all fulled...you may try again tmr...
+  utter_ask_book_doctor:
+  - text: Do you think yourself need to see a doctor?
   utter_ask_exercise:
   - text: What kind of exercise did you do 💪 ?
   utter_ask_sleep:
@@ -77,10 +118,29 @@ responses:
   - text: A healthy diet includes fruits and vegetables, whole grains, dairy, lean protein, and plant-based fats. While there is room in a healthy diet for treats, added sugar should be eaten sparingly. Aim for a variety of foods, and balance.
 actions:
 - action_submit_results
+- ask_extra
+- ask_more_advices
+- confirm_not_needed
+- utter_book_doctor
+- utter_confirm_covidTest
+- utter_confirm_healthInfo
+- utter_extra
+- utter_give_healthAdvice
+- utter_goodbye
 - utter_greet
+- utter_intro
+- utter_more_advices
+- utter_present_healthInfo
 - utter_slots_values
 forms:
   health_form:
+    confirm_symptoms:
+    - type: from_intent
+      intent: affirm
+      value: true
+    - type: from_intent
+      intent: deny
+      value: false
     confirm_exercise:
     - type: from_intent
       intent: affirm
@@ -103,12 +163,3 @@ forms:
     stress:
     - type: from_entity
       entity: stress
-    diet:
-    - type: from_text
-      intent:
-      - inform
-      - affirm
-      - deny
-    goal:
-    - type: from_text
-      intent: inform
