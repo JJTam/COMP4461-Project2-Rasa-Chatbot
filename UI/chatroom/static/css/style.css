@@ -137,8 +137,6 @@ div.chats::-webkit-scrollbar-thumb:hover {
 
 .singleCard {
 	/* height: 200px; */
-	padding-left: 10%;
-	padding-right: 10px;
 }
 
 .suggestions {
@@ -181,13 +179,13 @@ video:focus {
 }
 
 .menuTitle {
-	padding: 5px;
+
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
 
 .menu {
-	padding: 5px 10px;
+	padding: 5px 0px;
 	margin: 0 -5px;
 	width: 70vw;
 }
@@ -195,7 +193,6 @@ video:focus {
 .menuChips {
 	float: left;
 	width: 100%;
-	background: rgba(96,114,230,50%);
 	color: #fff;
 	text-align: center;
 	margin-bottom: 5px;
@@ -207,16 +204,14 @@ video:focus {
 
 .column {
 	float: left;
-	width: 25%;
-	padding: 0 5px;
+	padding: 0 0px;
+	width: 20%;
 }
 
 .imgcard {
 	object-fit: cover;
-	width: 100%;
-	height: 90%;
+	max-width: 100%;
 	border-radius: 10px 10px 10px 10px;
-	margin-left: 1%;
 }
 
 .chip {

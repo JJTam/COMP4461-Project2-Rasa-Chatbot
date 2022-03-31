@@ -1,7 +1,7 @@
 // define some welcome text
-let welcome_text_1 = "Welcome! I'm QB. your virtual prtner in slef-quarantine.";
+let welcome_text_1 = "Welcome! I'm QB, your virtual partner in slef-quarantine.";
 let welcome_text_2 =
-  "I can search for the latest health related to COVID-19, provide movie recommandations, find workout programs/video for you to follow, or suggest some meal plans/recipes to you! what would you like to do today?";
+  "I can search for the latest health info related to COVID-19, provide movie recommandations, find workout programs/video for you to follow, or suggest some meal plans/recipes to you! what would you like to do today?";
 
 // on input/text enter--------------------------------------------------------------------------------------
 $(".usrInput").on("keyup keypress", function(e) {
@@ -142,19 +142,12 @@ function addSuggestion(textToAdd) {
     for (i = 0; i < suggLength; i++) {
       $(
         '<div class="column">' +
-          '<div class="menuChips" data-payload=\'' +
-          suggestions[i].payload +
-          "'" +
-          'style="' +
-          "background-image: url(" +
+          '<div class="menuChips" data-payload=\'' + suggestions[i].payload + "' >" +
+          '<img class="imgcard" src="' +
           suggestions[i].src +
-          ')"' +
-          ">" +
-          "<h6>" +
-          suggestions[i].title +
-          "</h6>" +
+          '">' +
           "</div>" +
-          "</div>"
+		"</div>"
       ).appendTo(".menu");
     }
     scrollToBottomOfResults();
@@ -166,7 +159,7 @@ $(document).on("click", ".menu .menuChips", function() {
   var text = this.innerText;
   var payload = this.getAttribute("data-payload");
   console.log("button payload: ", this.getAttribute("data-payload"));
-  setUserResponse(text);
+  setUserResponse(payload);
   send(payload);
   $(".botSuggestion").remove(); //delete the suggestions
 });
