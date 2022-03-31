@@ -20,11 +20,11 @@ rules:
     steps:
     - intent: goodbye
     - action: utter_goodbye
-  - rule: Thanks
-    steps:
-    - intent: thankyou
-    - action: utter_no_worries
-    - action: utter_goodbye
+  # - rule: Thanks
+  #   steps:
+  #   - intent: thankyou
+  #   - action: utter_no_worries
+  #   - action: utter_goodbye
   - rule: Bot challenge
     steps:
     - intent: bot_challenge
@@ -62,7 +62,7 @@ rules:
     steps:
     - intent: wantWorkoutThighs
     - action: utter_workout_thighs
-  - rules: arm
+  - rule: arm
     steps:
     - intent: wantWorkoutArm
     - action: utter_workout_arm

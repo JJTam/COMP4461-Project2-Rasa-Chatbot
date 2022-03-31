@@ -18,6 +18,7 @@ nlu:
     - see you around
     - see you later
     - thanks and bye
+    - I see...
 - intent: affirm
   examples: |
     - yes
@@ -100,6 +101,7 @@ nlu:
     - [superhero](movie_key)
     - [new](movie_key)
     - [ghost](movie_key)
+    - [German](movie_key)
 - intent: inform
   examples: |
     - [funny]{"entity": "movie", "value": "comedy"}
@@ -191,6 +193,7 @@ nlu:
     - [action](movie)
     - [Advanture]{"entity": "movie", "value": "adventure"} movies
     - I am looking for [funny]{"entity": "movie", "value": "comedy"} movies
+    - I want [funny]{"entity": "movie", "value": "comedy"} movies
 - intent: out_of_scope
   examples: |
     - that's not what I want to do
@@ -239,6 +242,7 @@ nlu:
     - Any new policy announced on COVID?
     - Any news on COVID?
     - covid news?
+    - Is there any news updates
 - intent: checkHealth
   examples: |
     - Want to know am I health or not
@@ -309,6 +313,10 @@ nlu:
     - want to hear a joke~
     - QB can you tell another joke
     - anymore joke?
+    - I want to hear something funny
+    - and what about funny jokes?
+    - tell me something funny
+    - more jokes
 - intent: funny
   examples: |
     - Wow that's a good one xd
