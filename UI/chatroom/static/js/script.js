@@ -1,6 +1,7 @@
 // define some welcome text
-let welcome_text_1 = "Welcome! I'm QB. your virtual prtner in slef-quarantine."
-let welcome_text_2 = "I can search for the latest health related to COVID-19, provide movie recommandations, find workout programs/video for you to follow, or suggest some meal pans/recipes to you! what would you like to do today?"
+let welcome_text_1 = "Welcome! I'm QB. your virtual prtner in slef-quarantine.";
+let welcome_text_2 =
+  "I can search for the latest health related to COVID-19, provide movie recommandations, find workout programs/video for you to follow, or suggest some meal plans/recipes to you! what would you like to do today?";
 
 // on input/text enter--------------------------------------------------------------------------------------
 $(".usrInput").on("keyup keypress", function(e) {
@@ -127,26 +128,32 @@ function setBotResponse(val) {
   }, 500);
 }
 
-
 // ------------------------------------------ Suggestions -----------------------------------------------
 
 function addSuggestion(textToAdd) {
   setTimeout(function() {
     var suggestions = textToAdd;
     var suggLength = textToAdd.length;
-    $(
-      ' <div class="singleCard"> <div class="suggestions"><div class="menu"></div></div></diV>'
-    )
+    $(' <div class="botSuggestion"><div class="menu"></div></diV>')
       .appendTo(".chats")
       .hide()
       .fadeIn(1000);
     // Loop through suggestions
     for (i = 0; i < suggLength; i++) {
       $(
-        '<div class="menuChips" data-payload=\'' +
+        '<div class="column">' +
+          '<div class="menuChips" data-payload=\'' +
           suggestions[i].payload +
-          "'>" +
+          "'" +
+          'style="' +
+          "background-image: url(" +
+          suggestions[i].src +
+          ')"' +
+          ">" +
+          "<h6>" +
           suggestions[i].title +
+          "</h6>" +
+          "</div>" +
           "</div>"
       ).appendTo(".menu");
     }
@@ -161,11 +168,34 @@ $(document).on("click", ".menu .menuChips", function() {
   console.log("button payload: ", this.getAttribute("data-payload"));
   setUserResponse(text);
   send(payload);
-  $(".suggestions").remove(); //delete the suggestions
+  $(".botSuggestion").remove(); //delete the suggestions
 });
 
 //send welcome text
-$(document).ready(function(){
-	setBotResponse([{"recipient_id":"Me","text":welcome_text_1}]);
-	setBotResponse([{"recipient_id":"Me","text":welcome_text_2}]);
-})
+$(document).ready(function() {
+  setBotResponse([{ recipient_id: "Me", text: welcome_text_1 }]);
+  setBotResponse([{ recipient_id: "Me", text: welcome_text_2 }]);
+  setBotResponse([
+    {
+      recipient_id: "Me",
+      buttons: [
+        {
+          title: "Health Info",
+          payload: "Health Info",
+          src: "static/img/health.png",
+        },
+        {
+          title: "Movie Suggestions",
+          payload: "Movie",
+          src: "static/img/movie.png",
+        },
+        {
+          title: "Workout Programs",
+          payload: "Workout",
+          src: "static/img/workout.png",
+        },
+        { title: "Recipes", payload: "Recipes", src: "static/img/recipes.png" },
+      ],
+    },
+  ]);
+});
