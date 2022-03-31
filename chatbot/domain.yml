@@ -4,6 +4,12 @@ session_config:
   carry_over_slots_to_new_session: false
 intents:
 - wantJoke
+- wantHealthInfo
+- goodbye
+- deny
+- inform
+- greet
+- inform_key
 - funny
 - wantWorkoutArm
 - wantWorkoutUpper
@@ -15,14 +21,8 @@ intents:
 - affirm
 - healthAdvise
 - wantCovidTest
-- deny
 - checkHealth
-- inform
-- wantHealthInfo
-- inform_key
 - ask_movie
-- greet
-- goodbye
 - stop
 - bot_challenge
 - out_of_scope
@@ -206,12 +206,12 @@ actions:
 - utter_greet
 - utter_intro
 - utter_more_advices
+- utter_no_worries
 - utter_present_healthInfo
 - utter_randomJoke
 - utter_slots_values
-- utter_thanks
-- utter_no_worries
 - utter_suggest_movie
+- utter_thanks
 - utter_workout_arm
 - utter_workout_lower
 - utter_workout_thighs

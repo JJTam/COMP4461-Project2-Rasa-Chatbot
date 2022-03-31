@@ -1092,3 +1092,49 @@ stories:
   steps:
   - intent: wantWorkoutArm
   - action: utter_workout_arm
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: wantJoke
+  - action: utter_confirm_joke
+  - action: utter_randomJoke
+  - intent: inform
+    entities:
+    - movie: comedy
+  - slot_was_set:
+    - movie: comedy
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: German
+  - slot_was_set:
+    - movie_key: German
+  - action: action_find_movie
+
+- story: interactive_story_1
+  steps:
+  - intent: inform
+    entities:
+    - movie: comedy
+  - slot_was_set:
+    - movie: comedy
+  - action: utter_ask_movie_key
+  - intent: deny
+  - action: action_find_movie
+  - intent: wantJoke
+  - action: utter_randomJoke
+
+- story: interactive_story_1
+  steps:
+  - intent: wantJoke
+  - action: utter_confirm_joke
+  - action: utter_randomJoke
+  - intent: wantJoke
+  - action: utter_confirm_joke
+  - action: utter_randomJoke
+  - intent: wantHealthInfo
+  - action: utter_confirm_healthInfo
+  - action: utter_present_healthInfo
+  - intent: goodbye
+  - action: utter_goodbye
