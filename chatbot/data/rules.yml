@@ -50,5 +50,9 @@ rules:
     steps:
     - intent: wantCovidTest
     - action: utter_confirm_covidTest
+  - rule: reactToLaugh
+    steps:
+    - intent: funny
+    - action: utter_thanks
 
 

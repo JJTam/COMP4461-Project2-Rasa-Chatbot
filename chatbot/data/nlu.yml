@@ -180,3 +180,24 @@ nlu:
     - How to get vaccinated?
     - Want to be vaccinated
     - Want to see doctor
+- intent: wantJoke
+  examples: |
+    - QB can you tell jokes?
+    - Wish to hear something funny
+    - Boring...
+    - Anything that can make me laugh please
+    - any joke?
+    - anymore jokes? xd
+    - want to hear a joke~
+    - QB can you tell another joke
+    - anymore joke?
+- intent: funny
+  examples: |
+    - Wow that's a good one xd
+    - Laugh die me
+    - LMAO
+    - That's funny
+    - 10/10
+    - That's quite funny xd
+    - wonderful LMAO
+    - very good one lol

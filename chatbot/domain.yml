@@ -3,6 +3,8 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false
 intents:
+- wantJoke
+- funny
 - healthAppointment
 - affirm
 - healthAdvise
@@ -52,6 +54,8 @@ responses:
   - text: I can search for the latest health information related to COVID-19, provide movie recommendations, find workout programs/videos for you to follow, or suggest some meal plans/recipes to you! What would you like to do today?
   utter_goodbye:
   - text: Okay, see you!
+  utter_thanks:
+  - text: Thanks!
   utter_iamabot:
   - text: I am a bot, powered by Rasa, developed by UST Gang Gang.
   utter_confirm_healthInfo:
@@ -79,6 +83,17 @@ responses:
   - text: Got it. Anything else?
   - text: No problem! Anything else you would like to know?
   - text: Okay~Anything else that need my help?
+  utter_confirm_joke:
+  - text: Ha ha no problem~Joke is coming~
+  - text: Okay here comes a good one!
+  - text: This must make you laugh xd
+  utter_randomJoke:
+  - text: Once, my father came home and found me in front of a roaring fire. That made my father very mad, as we didn’t have a fireplace.
+  - text: Why don’t pirates take a shower before they walk the plank? They just wash up on shore.
+  - text: One of the oddities of Wall Street is that it is the dealer and not the customer who is called broker.
+  - text: A man went into a seafood restaurant and asked for a lobster tail. The waitress smiled sweetly and said, “Once upon a time there was this handsome lobster…”
+  - text: A bird in the hand is bad table manners.
+  - text: Two eggs, a bagel, and a sausage walk into a bar. “Bartender, my friends and I would like a cold one,” says one of the eggs. “Sorry,” the barman replies. “We don’t serve breakfast.”
   utter_not_needed:
   - text: Got it, take care!
   - text: Okay friend!
@@ -124,6 +139,7 @@ actions:
 - utter_book_doctor
 - utter_confirm_covidTest
 - utter_confirm_healthInfo
+- utter_confirm_joke
 - utter_extra
 - utter_give_healthAdvice
 - utter_goodbye
@@ -131,7 +147,9 @@ actions:
 - utter_intro
 - utter_more_advices
 - utter_present_healthInfo
+- utter_randomJoke
 - utter_slots_values
+- utter_thanks
 forms:
   health_form:
     confirm_symptoms:
