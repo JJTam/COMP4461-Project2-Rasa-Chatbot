@@ -1,0 +1,272 @@
+.container {
+	background-image: linear-gradient(white, #EDEDF3);
+	height:100%;
+}
+.btn-flat {
+	color: #6072e6;
+}
+
+.btn {
+	color: #ffffff;
+	background-color: #6072e6;
+}
+
+.nav {
+	box-shadow: none;
+}
+
+.chat_header {
+	height: 100%;
+	background: #EDEDFC;
+	/* #6072e6 */
+	padding: 0 5vw 0 5vw;
+	font-size: 20px;
+	align-items: center;
+	line-height: 0px;
+}
+
+.chats {
+	height: 85vh;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	overflow-y: scroll;
+	transition: 0.2s;
+	padding: 0 5vw 0 5vw;
+}
+
+div.chats::-webkit-scrollbar {
+	width: 0px;
+	/* remove scrollbar space /
+    background: transparent;
+    / optional: just make scrollbar invisible */
+}
+
+
+/* Track */
+
+div.chats::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey;
+	border-radius: 10px;
+}
+
+
+/* Handle */
+
+div.chats::-webkit-scrollbar-thumb {
+	background: #647aed;
+}
+
+
+/* Handle on hover */
+
+div.chats::-webkit-scrollbar-thumb:hover {
+	background: #b30000;
+}
+
+#close {
+	cursor: pointer;
+}
+
+.clearfix {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.message {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-right: 0;
+	margin-left: 0;
+}
+
+.botAvatar {
+	width: 2em;
+	height: 2em;
+	float: left;
+	margin-left: 5px;
+	
+}
+
+.botMsg {
+	color: #4B5563;
+	float: left;
+	background: #ffffff;
+	box-shadow: 2px 5px 22px 10px rgba(0, 0, 0, 0.06);
+	border: 1px solid #EDEDFC;
+	margin-left: 0.5em;
+	padding: 1.6em 1em;
+	border-radius: 5px;
+	max-width: 55%;
+	min-width: 25%;
+	font-size: 14px;
+	word-wrap: break-word;
+}
+
+.botSuggestion {
+	margin-left:42px;
+	display: block;
+}
+
+.userMsg {
+	animation: animateElement linear 0.2s;
+	animation-iteration-count: 1;
+	word-wrap: break-word;
+	padding: 1em 1em;
+	float: right;
+	margin-right: 0.5em;
+	background: #6072e6;
+	border: 1px solid #6072e6;
+	color: #fff;
+	border-radius: 5px;
+	margin-bottom: 0.15em;
+	font-size: 14px;
+	max-width: 55%;
+	line-height: 1.5em;
+}
+
+.userAvatar {
+	animation: animateElement linear 0.3s;
+	animation-iteration-count: 1;
+	border-radius: 50%;
+	width: 2em;
+	height: 2em;
+	float: right;
+	margin-right: 5px;
+	border: 2px solid #6072e6;
+}
+
+.singleCard {
+	/* height: 200px; */
+}
+
+.suggestions {
+	padding: 5px;
+	height: 100%;
+	width: 20%;
+	border-radius: 10px;
+	background: #ffffff;
+	box-shadow: 2px 5px 5px 1px #dbdade;
+}
+
+.cardsImage {
+	width: 100%;
+	height: 80%;
+	border-radius: 10px 10px 0px 0px;
+}
+
+.keypad {
+	background: #ffffff;
+	height: 40px;
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+}
+
+.usrInput {
+	width: 90%;
+	border: 0;
+	padding-left: 15px;
+	height: 50px;
+	padding: 0 5vw 0 5vw;
+}
+
+input:focus {
+	outline: none;
+}
+
+video:focus {
+	outline: none;
+}
+
+.menuTitle {
+
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.menu {
+	padding: 5px 0px;
+	margin: 0 -5px;
+	width: 70vw;
+}
+
+.menuChips {
+	float: left;
+	width: 100%;
+	color: #fff;
+	text-align: center;
+	margin-bottom: 5px;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 14px;
+	/* word-wrap: break-word; */
+}
+
+.column {
+	float: left;
+	padding: 0 0px;
+	width: 20%;
+}
+
+.imgcard {
+	object-fit: cover;
+	max-width: 100%;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.chip {
+	background-color: #6072e6;
+	color: #fff;
+	font-weight: normal;
+	font-weight: 0;
+	text-align: center;
+}
+
+@keyframes animateElement {
+	0% {
+		opacity: 0;
+		transform: translate(0px, 10px);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0px, 0px);
+	}
+}
+
+.imgProfile {
+	box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
+	background: white;
+	border-radius: 50px;
+	width: 60%;
+	padding: 2%;
+}
+
+.profile_div {
+	/* display: none; */
+	position: fixed;
+	padding: 5px;
+	width: 10%;
+	bottom: 0;
+	right: 0;
+	cursor: pointer;
+}
+
+.profileIcon {
+	height: 15%;
+	align-items: center;
+	float: left;
+	margin-right: 10px;
+}
+.delivery-button {
+	padding: 10px 0 10px 0;
+	cursor: pointer;
+}
+
+img.enter-icon:hover {
+	transform: translateY(-1px);
+}
+
+img.enter-icon:active {
+	-webkit-filter: drop-shadow( 4px 4px 3px rgba(0, 0, 0, .7));
+  	transform: translateY(2px);
+}
