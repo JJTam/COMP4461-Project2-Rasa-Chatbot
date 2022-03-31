@@ -1,7 +1,10 @@
 // define some welcome text
-let welcome_text_1 = "Welcome! I'm QB, your virtual partner in slef-quarantine.";
+let welcome_text_1 =
+  "Welcome! I'm QB, your virtual partner in slef-quarantine.";
 let welcome_text_2 =
   "I can search for the latest health info related to COVID-19, provide movie recommandations, find workout programs/video for you to follow, or suggest some meal plans/recipes to you! what would you like to do today?";
+let videoPreviewText =
+  "OK, I’ve found one video! Let me know if you want another one.";
 
 // on input/text enter--------------------------------------------------------------------------------------
 $(".usrInput").on("keyup keypress", function(e) {
@@ -32,6 +35,60 @@ $(".delivery-button").on("click", function() {
     return false;
   }
 });
+
+// extract link from text -- regrex function
+function previewIfLink(text) {
+  //if its a youtube link
+  function FindYoutubeId(url) {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    //return youtubeID if yes
+    return match && match[2].length === 11 ? match[2] : null;
+  }
+  let youtubeID = FindYoutubeId(text);
+
+  //for simple regex, not suitable for all case, find url
+  var urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
+  let temp = text.replace(urlRegex, function(url) {
+    // return text
+    return (
+      "\n" +
+      "<a href='" +
+      url +
+      "'>" +
+      url +
+      "</a>" +
+      "\n" +
+      '<iframe style="min-width: 300px; min-height: 300px;" width="100%" height="100%"' +
+      'src="' +
+      url +
+      '" frameborder="0" allowfullscreen >' +
+      "</iframe>"
+    );
+  });
+  console.log("temp: " + JSON.stringify(temp));
+  // return
+  if (temp.indexOf('src="') == -1) {
+    return text;
+  } else {
+    if (youtubeID) {
+      return (
+        videoPreviewText +
+        "\n(" +
+        "<a href='https://www.youtube.com/watch?v='>" +
+        "https://www.youtube.com/watch?v=" +
+        youtubeID +
+        "</a>" +
+        ")" +
+        "\n" +
+        '<iframe style="min-width: 300px; min-height: 300px;" width="100%" height="100%"' +
+        ' src="//www.youtube.com/embed/' +
+        youtubeID +
+        '" frameborder="0" allowfullscreen></iframe>'
+      );
+    } else return temp;
+  }
+}
 
 //------------------------------------- Set user response------------------------------------
 function setUserResponse(val) {
@@ -96,7 +153,7 @@ function setBotResponse(val) {
         if (val[i].hasOwnProperty("text")) {
           var BotResponse =
             '<img class="botAvatar" src="./static/img/logo_only.svg"><p class="botMsg">' +
-            val[i].text +
+            previewIfLink(val[i].text) +
             '</p><div class="clearfix"></div>';
           $(BotResponse)
             .appendTo(".chats")
@@ -142,12 +199,14 @@ function addSuggestion(textToAdd) {
     for (i = 0; i < suggLength; i++) {
       $(
         '<div class="column">' +
-          '<div class="menuChips" data-payload=\'' + suggestions[i].payload + "' >" +
+          '<div class="menuChips" data-payload=\'' +
+          suggestions[i].payload +
+          "' >" +
           '<img class="imgcard" src="' +
           suggestions[i].src +
           '">' +
           "</div>" +
-		"</div>"
+          "</div>"
       ).appendTo(".menu");
     }
     scrollToBottomOfResults();
