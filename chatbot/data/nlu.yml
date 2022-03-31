@@ -10,12 +10,14 @@ nlu:
     - hey there
     - Hi
     - Hi~
+    - hi~
 - intent: goodbye
   examples: |
     - bye
     - goodbye
     - see you around
     - see you later
+    - thanks and bye
 - intent: affirm
   examples: |
     - yes
@@ -34,11 +36,14 @@ nlu:
     - You bet
     - I sure did
     - more or less
+    - of course!
+    - yes!
     - sure!
     - sure sure
     - really?
     - great
     - nice
+    - ys
 - intent: deny
   examples: |
     - no
@@ -70,8 +75,36 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+- intent: inform_key
+  examples: |
+    - [war](movie_key)
+    - [1970s](movie_key)
+    - I am finding an [action](movie) movie
+    - [zombies](movie_key)
+    - [zombie](movie_key)
+    - [action](movie)
+    - [police](movie_key)
+    - what about some [horror](movie) movie?
+    - [war](movie)
+    - [1980s](movie_key)
+    - [question](movie_key)
+    - [action](movie) movies
+    - [Chinese](movie_key)
+    - what about [comedy](movie)?
+    - [United States](movie_key)
+    - [comedy](movie)
+    - [old](movie_key)
+    - [political](movie_key)
+    - [controversial](movie_key)
+    - [French](movie_key)
+    - [superhero](movie_key)
+    - [new](movie_key)
+    - [ghost](movie_key)
 - intent: inform
   examples: |
+    - [funny]{"entity": "movie", "value": "comedy"}
+    - [fun]{"entity": "movie", "value": "comedy"} ones
+    - [thrillers]{"entity": "movie", "value": "thriller"}
     - a full [8 hours](sleep)
     - only [four hours](sleep)
     - about [six hours](sleep)
@@ -113,6 +146,7 @@ nlu:
     - I go [hiking](exercise)
     - [8 hours](sleep)
     - finish the rasa tutorial
+    - May I make an appointment with doctor?
     - I want to watch some [action](movie) movies
     - [Advanture]{"entity": "movie", "value": "adventure"}!
     - Why not some [western](movie) film?
@@ -150,6 +184,13 @@ nlu:
     - Something that is about [wars]{"entity": "movie", "value": "war"}
     - Thanks! What about some [musical]{"entity": "movie", "value": "music"} film?
     - I am also looking for [non-fiction]{"entity": "movie", "value": "documentary"} films
+    - I am finding [funny]{"entity": "movie", "value": "comedy"} movies
+    - [war](movie)
+    - [action](movie) movies
+    - [funny]{"entity": "movie", "value": "comedy"} movies
+    - [action](movie)
+    - [Advanture]{"entity": "movie", "value": "adventure"} movies
+    - I am looking for [funny]{"entity": "movie", "value": "comedy"} movies
 - intent: out_of_scope
   examples: |
     - that's not what I want to do
@@ -191,6 +232,93 @@ nlu:
     - Is walking once a day enough exercise?
     - How much exercise should I do every day?
     - How many times per week should I go to the gym?
+- intent: wantHealthInfo
+  examples: |
+    - Any news about COVID-19?
+    - How's COVID-19 today?
+    - Any new policy announced on COVID?
+    - Any news on COVID?
+    - covid news?
+- intent: checkHealth
+  examples: |
+    - Want to know am I health or not
+    - Am I healthy?
+    - Am I good?
+- intent: healthAdvise
+  examples: |
+    - What should I do to be more healthy?
+    - Any advice on health?
+    - how to be healthier
+    - any health advice?
+    - health advise please
+- intent: wantCovidTest
+  examples: |
+    - How to book for COVID test?
+    - Covid test availble?
+    - Can I have COVID test in my room?
+    - want covid test asap
+    - want covid test
+- intent: wantWorkoutWhole
+  examples: |
+    - I am looking for some workouts
+    - Any recommendation for whole-body training?
+    - I want some exercise
+    - Can you suggest some whole-body workout scheme?
+    - Is there whole-body training scheme?
+- intent: wantWorkoutUpper
+  examples: |
+    - Can you suggest some upper body exercise?
+    - I'm heading to some upper body training
+    - upper body workout
+    - upper-body workout
+    - I am looking for some upper body training
+- intent: wantWorkoutLower
+  examples: |
+    - Can you suggest some lower body exercise?
+    - I'm heading to some lower body training
+    - lower body workout
+    - lower-body workout
+    - Lower-body training
+- intent: wantWorkoutArm
+  examples: |
+    - Can you give instruction for training of arms?
+    - I want to train up my arm
+    - arm workout
+    - Any arm workout plan?
+    - arm training!
+- intent: wantWorkoutThighs
+  examples: |
+    - Can you give instruction for training of thighs?
+    - I want to train up my thighs
+    - Thighs workout
+    - Any thighs workout plan?
+    - Any traning designed for thighs? :)
+- intent: healthAppointment
+  examples: |
+    - How to get vaccinated?
+    - Want to be vaccinated
+    - Want to see doctor
+- intent: wantJoke
+  examples: |
+    - QB can you tell jokes?
+    - Wish to hear something funny
+    - Boring...
+    - Anything that can make me laugh please
+    - any joke?
+    - anymore jokes? xd
+    - want to hear a joke~
+    - QB can you tell another joke
+    - anymore joke?
+- intent: funny
+  examples: |
+    - Wow that's a good one xd
+    - Laugh die me
+    - LMAO
+    - That's funny
+    - 10/10
+    - That's quite funny xd
+    - wonderful LMAO
+    - very good one lol
 - intent: ask_movie
   examples: |
     - Is there any good movie?
@@ -220,6 +348,34 @@ nlu:
     - I am finding movies
     - I am looking for some [war](movie) films
     - I am looking for movies based on [real events]{"entity": "movie", "value": "documentary"}
+    - I am looking for a [romantic]{"entity": "movie", "value": "romance"} movie
+    - I am looking for a [documentary](movie)
+    - I am looking for some [romantic]{"entity": "movie", "value": "romance"} film
+    - I am finding [war](movie) films
+    - I am looking for films
+    - I am finding movie. Can you help?
+    - I am finding films
+    - [horror](movie) movies
+    - I'm looking for [exciting]{"entity": "movie", "value": "adventure"} movie
+    - [war](movie) films
+    - I am looking for films again
+    - I want to find film again!
+    - im finding films
+    - [comedy](movie) movie
+    - I am fining movies
+- synonym: comedy
+  examples: |
+    - funny
+    - fun
+    - laugh
+    - comedies
+    - hilarious
+    - laughter
+- synonym: thriller
+  examples: |
+    - thrillers
+    - thrilling
+    - thrill
 - synonym: adventure
   examples: |
     - Advanture
@@ -249,24 +405,11 @@ nlu:
   examples: |
     - love
     - romantic
-- synonym: comedy
-  examples: |
-    - funny
-    - laugh
-    - comedies
-    - fun
-    - hilarious
-    - laughter
 - synonym: animation
   examples: |
     - cartoons
     - animated
     - cartoon
-- synonym: thriller
-  examples: |
-    - thrillers
-    - thrilling
-    - thrill
 - synonym: history
   examples: |
     - ancient

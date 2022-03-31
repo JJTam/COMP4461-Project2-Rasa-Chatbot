@@ -1,9 +1,11 @@
+from ast import keyword
 from typing import Any, Text, Dict, List, Union, Optional
 # from dotenv import load_dotenv
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormValidationAction
+from rasa_sdk.events import AllSlotsReset
 
 import requests
 import json
@@ -104,15 +106,26 @@ class ActionFindMovie(Action):
 
     ####TODO: searching at csv - specific format of input as a dict(/) of [id, name]?
         genre = tracker.get_slot("movie")
+        keyword = tracker.get_slot("movie_key")
         #print(genre)
-        df = pd.read_csv(os.path.dirname(os.path.realpath(__file__))+'/tmdb_5000_movies.csv', sep=',', usecols = ['title', 'genres'])
+        df = pd.read_csv(os.path.dirname(os.path.realpath(__file__))+'/tmdb_5000_movies.csv', sep=',', usecols = ['title', 'genres', 'keywords'])
         df = df[df['genres'].str.contains(genre, case=False)]
-        df_selected = df.sample(n=5)
-        recommendation_list = df_selected['title'].to_list()
         message = "You can watch these:\n"
-        for i in range(5):
-            #message += 
-            message += str(i+1) + ". " + recommendation_list[i] + "\n"
+        if (keyword != None):
+            df_with_key = df[df['keywords'].str.contains(keyword, case=False)]
+            if (int(df_with_key.size/3) == 0):
+                message = "I can't find any movie with your given keyword. Yet, you can still watch these:\n"
+            else:
+                df = df_with_key
+        if int(df.size/3) > 5:
+            df_selected = df.sample(n=5)
+        else:
+            df_selected = df
+        recommendation_list = df_selected['title'].to_list()
+        i=0
+        for x in recommendation_list:
+            i += 1
+            message += str(i) + ". " + x + '\n'
         #exercise = tracker.get_slot("exercise")
         #sleep = tracker.get_slot("sleep")
         #stress = tracker.get_slot("stress")
@@ -131,4 +144,4 @@ class ActionFindMovie(Action):
         #dispatcher.utter_message("Thanks, your answers have been recorded!")
         dispatcher.utter_message(message)
 
-        return []
+        return [AllSlotsReset()]
