@@ -29,7 +29,7 @@ stories:
   - action: utter_more_advices
   - intent: deny
   - action: utter_extra
-- story: survey happy path
+#- story: survey happy path
 
 # - story: survey happy path
 #   steps:
@@ -75,7 +75,7 @@ stories:
   - action: utter_suggest_movie
   - intent: affirm
   - action: utter_ask_movie_genre
-  - intent: info
+  - intent: inform
   #- slot_was_set:
   #  - request_slot: genre
   - action: utter_goodbye
@@ -1044,3 +1044,51 @@ stories:
   - action: utter_randomJoke
   - intent: funny
   - action: utter_thanks
+  
+- story: interactive_story_1
+  steps:
+  - intent: healthAppointment
+  - action: utter_book_doctor
+  - action: utter_extra
+  - intent: deny
+  - action: utter_goodbye
+  - intent: healthAdvise
+  - action: utter_give_healthAdvice
+  - action: utter_more_advices
+  - intent: affirm
+  - action: utter_give_healthAdvice
+  - action: utter_extra
+  - intent: wantCovidTest
+  - action: utter_confirm_covidTest
+  - action: utter_extra
+  - intent: healthAdvise
+  - action: utter_give_healthAdvice
+  - action: utter_more_advices
+  - action: utter_extra
+  
+- story: interactive_story_1
+  steps:
+  - intent: wantWorkoutUpper
+  - action: utter_workout_upper
+  - intent: thankyou
+  - action: utter_no_worries
+
+- story: interactive_story_2
+  steps:
+  - intent: wantWorkoutLower
+  - action: utter_workout_lower
+
+- story: interactive_story_3
+  steps:
+  - intent: wantWorkoutWhole
+  - action: utter_workout_whole
+
+- story: interactive_story_4
+  steps:
+  - intent: wantWorkoutThighs
+  - action: utter_workout_thighs
+
+- story: interactive_story_5
+  steps:
+  - intent: wantWorkoutArm
+  - action: utter_workout_arm
