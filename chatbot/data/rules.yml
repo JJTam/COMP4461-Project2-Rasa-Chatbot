@@ -46,17 +46,23 @@ rules:
     - intent: wantHealthInfo
     - action: utter_confirm_healthInfo
     - action: utter_present_healthInfo
-  - rule: covidTest
+  - rule: upper
     steps:
-    - intent: wantCovidTest
-    - action: utter_confirm_covidTest
-
-
-
-  # - rule: ask movie key
-  #   condition:
-  # - slot_was_set:
-  #   - key: null
-  #   steps:
-  #   - intent: ask_movie
-  #   - action: utter_suggest_movie
+    - intent: wantWorkoutUpper
+    - action: utter_workout_upper
+  - rule: lower
+    steps:
+    - intent: wantWorkoutLower
+    - action: utter_workout_lower
+  - rule: whole
+    steps:
+    - intent: wantWorkoutWhole
+    - action: utter_workout_whole
+  - rule: thighs
+    steps:
+    - intent: wantWorkoutThighs
+    - action: utter_workout_thighs
+  - rules: arm
+    steps:
+    - intent: wantWorkoutArm
+    - action: utter_workout_arm

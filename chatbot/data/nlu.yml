@@ -80,11 +80,8 @@ nlu:
     - [war](movie_key)
     - [1970s](movie_key)
     - I am finding an [action](movie) movie
-    - [fun]{"entity": "movie", "value": "comedy"} ones
     - [zombies](movie_key)
-    - [thrillers]{"entity": "movie", "value": "thriller"}
     - [zombie](movie_key)
-    - [funny]{"entity": "movie", "value": "comedy"}
     - [action](movie)
     - [police](movie_key)
     - what about some [horror](movie) movie?
@@ -105,6 +102,9 @@ nlu:
     - [ghost](movie_key)
 - intent: inform
   examples: |
+    - [funny]{"entity": "movie", "value": "comedy"}
+    - [fun]{"entity": "movie", "value": "comedy"} ones
+    - [thrillers]{"entity": "movie", "value": "thriller"}
     - a full [8 hours](sleep)
     - only [four hours](sleep)
     - about [six hours](sleep)
@@ -187,7 +187,6 @@ nlu:
     - I am finding [funny]{"entity": "movie", "value": "comedy"} movies
     - [war](movie)
     - [action](movie) movies
-    - [funny]{"entity": "movie", "value": "comedy"}
     - [funny]{"entity": "movie", "value": "comedy"} movies
     - [action](movie)
     - [Advanture]{"entity": "movie", "value": "adventure"} movies
@@ -259,6 +258,41 @@ nlu:
     - Can I have COVID test in my room?
     - want covid test asap
     - want covid test
+- intent: wantWorkoutWhole
+  examples: |
+    - I am looking for some workouts
+    - Any recommendation for whole-body training?
+    - I want some exercise
+    - Can you suggest some whole-body workout scheme?
+    - Is there whole-body training scheme?
+- intent: wantWorkoutUpper
+  examples: |
+    - Can you suggest some upper body exercise?
+    - I'm heading to some upper body training
+    - upper body workout
+    - upper-body workout
+    - I am looking for some upper body training
+- intent: wantWorkoutLower
+  examples: |
+    - Can you suggest some lower body exercise?
+    - I'm heading to some lower body training
+    - lower body workout
+    - lower-body workout
+    - Lower-body training
+- intent: wantWorkoutArm
+  examples: |
+    - Can you give instruction for training of arms?
+    - I want to train up my arm
+    - arm workout
+    - Any arm workout plan?
+    - arm training!
+- intent: wantWorkoutThighs
+  examples: |
+    - Can you give instruction for training of thighs?
+    - I want to train up my thighs
+    - Thighs workout
+    - Any thighs workout plan?
+    - Any traning designed for thighs? :)
 - intent: healthAppointment
   examples: |
     - How to get vaccinated?
@@ -310,8 +344,8 @@ nlu:
     - I am fining movies
 - synonym: comedy
   examples: |
-    - fun
     - funny
+    - fun
     - laugh
     - comedies
     - hilarious
