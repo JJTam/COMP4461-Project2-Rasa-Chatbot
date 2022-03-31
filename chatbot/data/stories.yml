@@ -5,6 +5,11 @@ stories:
   - intent: out_of_scope
   - action: utter_not_needed
   - action: utter_goodbye
+- story: tellJoke
+  steps:
+  - intent: wantJoke
+  - action: utter_confirm_joke
+  - action: utter_randomJoke
 - story: bookDoctor
   steps:
   - intent: healthAppointment
@@ -1015,6 +1020,31 @@ stories:
     - requested_slot: confirm_symptoms
   - intent: inform
 
+
+- story: interactive_story_1
+  steps:
+  - intent: wantJoke
+  - action: utter_randomJoke
+  - intent: funny
+  - action: utter_thanks
+  - intent: wantJoke
+  - action: utter_randomJoke
+  - intent: funny
+  - action: utter_thanks
+
+- story: interactive_story_1
+  steps:
+  - intent: wantJoke
+  - action: utter_randomJoke
+  - intent: wantJoke
+  - action: utter_confirm_joke
+  - action: utter_randomJoke
+  - intent: wantJoke
+  - action: utter_confirm_joke
+  - action: utter_randomJoke
+  - intent: funny
+  - action: utter_thanks
+  
 - story: interactive_story_1
   steps:
   - intent: healthAppointment
@@ -1035,6 +1065,7 @@ stories:
   - action: utter_give_healthAdvice
   - action: utter_more_advices
   - action: utter_extra
+  
 - story: interactive_story_1
   steps:
   - intent: wantWorkoutUpper
