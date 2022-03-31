@@ -17,6 +17,7 @@ nlu:
     - goodbye
     - see you around
     - see you later
+    - thanks and bye
 - intent: affirm
   examples: |
     - yes
@@ -35,6 +36,8 @@ nlu:
     - You bet
     - I sure did
     - more or less
+    - of course!
+    - yes!
     - sure!
     - sure sure
     - really?
@@ -143,6 +146,7 @@ nlu:
     - I go [hiking](exercise)
     - [8 hours](sleep)
     - finish the rasa tutorial
+    - May I make an appointment with doctor?
     - I want to watch some [action](movie) movies
     - [Advanture]{"entity": "movie", "value": "adventure"}!
     - Why not some [western](movie) film?
@@ -229,6 +233,37 @@ nlu:
     - Is walking once a day enough exercise?
     - How much exercise should I do every day?
     - How many times per week should I go to the gym?
+- intent: wantHealthInfo
+  examples: |
+    - Any news about COVID-19?
+    - How's COVID-19 today?
+    - Any new policy announced on COVID?
+    - Any news on COVID?
+    - covid news?
+- intent: checkHealth
+  examples: |
+    - Want to know am I health or not
+    - Am I healthy?
+    - Am I good?
+- intent: healthAdvise
+  examples: |
+    - What should I do to be more healthy?
+    - Any advice on health?
+    - how to be healthier
+    - any health advice?
+    - health advise please
+- intent: wantCovidTest
+  examples: |
+    - How to book for COVID test?
+    - Covid test availble?
+    - Can I have COVID test in my room?
+    - want covid test asap
+    - want covid test
+- intent: healthAppointment
+  examples: |
+    - How to get vaccinated?
+    - Want to be vaccinated
+    - Want to see doctor
 - intent: ask_movie
   examples: |
     - Is there any good movie?

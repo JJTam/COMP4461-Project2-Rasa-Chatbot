@@ -15,6 +15,7 @@ rules:
     steps:
     - intent: greet
     - action: utter_greet
+    #- action: utter_intro
   - rule: Goodbye
     steps:
     - intent: goodbye
@@ -40,6 +41,18 @@ rules:
     steps:
     - intent: ask_lower_stress
     - action: utter_stress_info
+  - rule: newsOnCovid
+    steps:
+    - intent: wantHealthInfo
+    - action: utter_confirm_healthInfo
+    - action: utter_present_healthInfo
+  - rule: covidTest
+    steps:
+    - intent: wantCovidTest
+    - action: utter_confirm_covidTest
+
+
+
   # - rule: ask movie key
   #   condition:
   # - slot_was_set:
