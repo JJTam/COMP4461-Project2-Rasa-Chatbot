@@ -9,6 +9,8 @@ nlu:
     - good evening
     - hey there
     - Hi
+    - Hi~
+    - hi~
 - intent: goodbye
   examples: |
     - bye
@@ -36,6 +38,12 @@ nlu:
     - more or less
     - of course!
     - yes!
+    - sure!
+    - sure sure
+    - really?
+    - great
+    - nice
+    - ys
 - intent: deny
   examples: |
     - no
@@ -58,12 +66,43 @@ nlu:
     - sure thanks
     - thanks bye
     - thanks
+    - Thanks
+    - Thanks~
+    - THanks~
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+- intent: inform_key
+  examples: |
+    - [war](movie_key)
+    - [1970s](movie_key)
+    - I am finding an [action](movie) movie
+    - [fun]{"entity": "movie", "value": "comedy"} ones
+    - [zombies](movie_key)
+    - [thrillers]{"entity": "movie", "value": "thriller"}
+    - [zombie](movie_key)
+    - [funny]{"entity": "movie", "value": "comedy"}
+    - [action](movie)
+    - [police](movie_key)
+    - what about some [horror](movie) movie?
+    - [war](movie)
+    - [1980s](movie_key)
+    - [question](movie_key)
+    - [action](movie) movies
+    - [Chinese](movie_key)
+    - what about [comedy](movie)?
+    - [United States](movie_key)
+    - [comedy](movie)
+    - [old](movie_key)
+    - [political](movie_key)
+    - [controversial](movie_key)
+    - [French](movie_key)
+    - [superhero](movie_key)
+    - [new](movie_key)
+    - [ghost](movie_key)
 - intent: inform
   examples: |
     - a full [8 hours](sleep)
@@ -108,6 +147,51 @@ nlu:
     - [8 hours](sleep)
     - finish the rasa tutorial
     - May I make an appointment with doctor?
+    - I want to watch some [action](movie) movies
+    - [Advanture]{"entity": "movie", "value": "adventure"}!
+    - Why not some [western](movie) film?
+    - I love [animation](movie) :)
+    - [Crime]{"entity": "movie", "value": "crime"}
+    - Today I hope to see some [Fantasy]{"entity": "movie", "value": "fantasy"}
+    - I'm looking for [comedy](movie)
+    - Maybe some [thriller](movie)
+    - Some films about [family](movie)
+    - Some classic [drama](movie)
+    - Something that is [romance](movie)
+    - A [history](movie) film!
+    - [Horror]{"entity": "movie", "value": "horror"}
+    - I want to watch some [western](movie) film
+    - stories about [lawbreakers]{"entity": "movie", "value": "crime"}
+    - some [love]{"entity": "movie", "value": "romance"} stories
+    - something [exciting]{"entity": "movie", "value": "adventure"}
+    - I want to watch some [western](movie) films
+    - I want some [advanturous](movie) films
+    - What about some [advanturous]{"entity": "movie", "value": "adventure"} films?
+    - sone [advanture]{"entity": "movie", "value": "adventure"} movies?
+    - Hi~ I want some [funny]{"entity": "movie", "value": "comedy"} films
+    - what about some [cartoons]{"entity": "movie", "value": "animation"}?
+    - I want some movies that make us [laugh]{"entity": "movie", "value": "comedy"}
+    - What about some [cartoons]{"entity": "movie", "value": "animation"}?
+    - I also want to watch some [thrillers]{"entity": "movie", "value": "thriller"}
+    - [cartoons]{"entity": "movie", "value": "animation"}
+    - [love]{"entity": "movie", "value": "romance"} stories
+    - Can you suggest some [funny]{"entity": "movie", "value": "comedy"} films?
+    - I want some [comedies]{"entity": "movie", "value": "comedy"}
+    - can you recommend some [thrillers]{"entity": "movie", "value": "thriller"} then?
+    - [vibsdivbiebchhc ie iue](movie)
+    - [drama](movie)
+    - [ancient]{"entity": "movie", "value": "history"} lengands
+    - Something that is about [wars]{"entity": "movie", "value": "war"}
+    - Thanks! What about some [musical]{"entity": "movie", "value": "music"} film?
+    - I am also looking for [non-fiction]{"entity": "movie", "value": "documentary"} films
+    - I am finding [funny]{"entity": "movie", "value": "comedy"} movies
+    - [war](movie)
+    - [action](movie) movies
+    - [funny]{"entity": "movie", "value": "comedy"}
+    - [funny]{"entity": "movie", "value": "comedy"} movies
+    - [action](movie)
+    - [Advanture]{"entity": "movie", "value": "adventure"} movies
+    - I am looking for [funny]{"entity": "movie", "value": "comedy"} movies
 - intent: out_of_scope
   examples: |
     - that's not what I want to do
@@ -180,3 +264,136 @@ nlu:
     - How to get vaccinated?
     - Want to be vaccinated
     - Want to see doctor
+- intent: ask_movie
+  examples: |
+    - Is there any good movie?
+    - I am bored. Can you recommend some films for me?
+    - Anything fun to watch?
+    - It's movie time!
+    - I want to watch some movie
+    - I want towatch some movie
+    - I want to watch some films
+    - want some movies
+    - moviw
+    - films
+    - movies
+    - I want to watch some [thrilling]{"entity": "movie", "value": "thriller"} movie
+    - I am looking for some movies
+    - Can you suggest some movies?
+    - can you sugest some [abc](movie) movie?
+    - Can you recommend some more films?
+    - Is there some [sbebviuweb owbibvoefvoi](movie) moovies?
+    - Is there some [historical]{"entity": "movie", "value": "history"} movies?
+    - Can you recommend some movies?
+    - Can you find me some [documentaries]{"entity": "movie", "value": "documentary"}?
+    - Can you recommend some [sci-fic]{"entity": "movie", "value": "science fiction"} films?
+    - I am finding mysterious movies
+    - I am find some [mysterious]{"entity": "movie", "value": "mystery"} movies
+    - I am looking for [war](movie) films
+    - I am finding movies
+    - I am looking for some [war](movie) films
+    - I am looking for movies based on [real events]{"entity": "movie", "value": "documentary"}
+    - I am looking for a [romantic]{"entity": "movie", "value": "romance"} movie
+    - I am looking for a [documentary](movie)
+    - I am looking for some [romantic]{"entity": "movie", "value": "romance"} film
+    - I am finding [war](movie) films
+    - I am looking for films
+    - I am finding movie. Can you help?
+    - I am finding films
+    - [horror](movie) movies
+    - I'm looking for [exciting]{"entity": "movie", "value": "adventure"} movie
+    - [war](movie) films
+    - I am looking for films again
+    - I want to find film again!
+    - im finding films
+    - [comedy](movie) movie
+    - I am fining movies
+- synonym: comedy
+  examples: |
+    - fun
+    - funny
+    - laugh
+    - comedies
+    - hilarious
+    - laughter
+- synonym: thriller
+  examples: |
+    - thrillers
+    - thrilling
+    - thrill
+- synonym: adventure
+  examples: |
+    - Advanture
+    - exciting
+    - advanturous
+    - advanture
+    - adventurous
+- synonym: crime
+  examples: |
+    - Crime
+    - lawbreakers
+    - criminal
+    - lawbreaker
+    - unlawful
+- synonym: fantasy
+  examples: |
+    - Fantasy
+    - fantastic
+    - mircale
+- synonym: horror
+  examples: |
+    - Horror
+    - scary
+    - horrible
+    - scaring
+- synonym: romance
+  examples: |
+    - love
+    - romantic
+- synonym: animation
+  examples: |
+    - cartoons
+    - animated
+    - cartoon
+- synonym: history
+  examples: |
+    - ancient
+    - historical
+- synonym: war
+  examples: |
+    - wars
+- synonym: music
+  examples: |
+    - musical
+- synonym: documentary
+  examples: |
+    - non-fiction
+    - documentaries
+    - real events
+    - real
+- synonym: science fiction
+  examples: |
+    - sci-fic
+- synonym: mystery
+  examples: |
+    - mysterious
+- synonym: action
+  examples: |
+    - Active
+    - gritty
+    - violent
+    - brutal
+    - fight
+- synonym: western
+  examples: |
+    - wild west
+    - old west
+    - american west
+- synonym: family
+  examples: |
+    - home
+    - families
+- synonym: drama
+  examples: |
+    - dramatic
+    - storied

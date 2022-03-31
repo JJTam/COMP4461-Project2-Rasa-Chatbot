@@ -1,12 +1,17 @@
+from ast import keyword
 from typing import Any, Text, Dict, List, Union, Optional
 # from dotenv import load_dotenv
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormValidationAction
+from rasa_sdk.events import AllSlotsReset
 
 import requests
 import json
+import os
+import pandas as pd
+
 import os
 
 # load_dotenv()
@@ -89,3 +94,54 @@ class ActionSubmitResults(Action):
         dispatcher.utter_message("Thanks, your answers have been recorded!")
         return []
 
+class ActionFindMovie(Action):
+    def name(self) -> Text:
+        return "action_find_movie"
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+
+    ####TODO: searching at csv - specific format of input as a dict(/) of [id, name]?
+        genre = tracker.get_slot("movie")
+        keyword = tracker.get_slot("movie_key")
+        #print(genre)
+        df = pd.read_csv(os.path.dirname(os.path.realpath(__file__))+'/tmdb_5000_movies.csv', sep=',', usecols = ['title', 'genres', 'keywords'])
+        df = df[df['genres'].str.contains(genre, case=False)]
+        message = "You can watch these:\n"
+        if (keyword != None):
+            df_with_key = df[df['keywords'].str.contains(keyword, case=False)]
+            if (int(df_with_key.size/3) == 0):
+                message = "I can't find any movie with your given keyword. Yet, you can still watch these:\n"
+            else:
+                df = df_with_key
+        if int(df.size/3) > 5:
+            df_selected = df.sample(n=5)
+        else:
+            df_selected = df
+        recommendation_list = df_selected['title'].to_list()
+        i=0
+        for x in recommendation_list:
+            i += 1
+            message += str(i) + ". " + x + '\n'
+        #exercise = tracker.get_slot("exercise")
+        #sleep = tracker.get_slot("sleep")
+        #stress = tracker.get_slot("stress")
+        #diet = tracker.get_slot("diet")
+        #goal = tracker.get_slot("goal")
+
+        # response = create_health_log(
+        #         confirm_exercise=confirm_exercise,
+        #         exercise=exercise,
+        #         sleep=sleep,
+        #         stress=stress,
+        #         diet=diet,
+        #         goal=goal
+        #     )
+
+        #dispatcher.utter_message("Thanks, your answers have been recorded!")
+        dispatcher.utter_message(message)
+
+        return [AllSlotsReset()]

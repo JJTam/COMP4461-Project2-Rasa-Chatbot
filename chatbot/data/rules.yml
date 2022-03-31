@@ -52,3 +52,11 @@ rules:
     - action: utter_confirm_covidTest
 
 
+
+  # - rule: ask movie key
+  #   condition:
+  # - slot_was_set:
+  #   - key: null
+  #   steps:
+  #   - intent: ask_movie
+  #   - action: utter_suggest_movie

@@ -142,7 +142,7 @@ yarn install
   # run the local host
   yarn serve
   ```
-Then open http://localhost:8080/demo.html in your browser.
+Then open http://localhost:8080/index.html in your browser.
 
 
 ### 2. Interactive-Voice-Response

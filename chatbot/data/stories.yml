@@ -25,85 +25,960 @@ stories:
   - intent: deny
   - action: utter_extra
 - story: survey happy path
+
+# - story: survey happy path
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
+# - story: survey stop
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
+#   - intent: out_of_scope
+#   - action: utter_ask_continue
+#   - intent: deny
+#   - action: action_deactivate_loop
+#   - active_loop: null
+#   - action: utter_goodbye
+# - story: survey continue
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
+#   - intent: out_of_scope
+#   - action: utter_ask_continue
+#   - intent: affirm
+#   - action: health_form
+# - story: no survey
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: deny
+#   - action: utter_goodbye
+
+- story: movie_story
   steps:
-  - intent: greet
-  - action: utter_greet
+  - intent: ask_movie
+  - action: utter_suggest_movie
   - intent: affirm
-  - action: health_form
-  - active_loop: health_form
-- story: survey stop
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: affirm
-  - action: health_form
-  - active_loop: health_form
-  - intent: out_of_scope
-  - action: utter_ask_continue
-  - intent: deny
-  - action: action_deactivate_loop
-  - active_loop: null
+  - action: utter_ask_movie_genre
+  - intent: info
+  #- slot_was_set:
+  #  - request_slot: genre
   - action: utter_goodbye
-- story: survey continue
+  - action: action_find_movie
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - action: health_form
+#   - active_loop: health_form
+#   - slot_was_set:
+#     - requested_slot: confirm_exercise
+#   - slot_was_set:
+#     - confirm_exercise: true
+#   - slot_was_set:
+#     - requested_slot: exercise
+#   - slot_was_set:
+#     - exercise: hiking
+#   - slot_was_set:
+#     - exercise: hiking
+#   - slot_was_set:
+#     - requested_slot: sleep
+#   - slot_was_set:
+#     - sleep: 8 hours
+#   - slot_was_set:
+#     - sleep: 8 hours
+#   - slot_was_set:
+#     - requested_slot: stress
+#   - slot_was_set:
+#     - stress: high
+#   - slot_was_set:
+#     - stress: high
+#   - slot_was_set:
+#     - requested_slot: diet
+#   - slot_was_set:
+#     - diet: no
+#   - slot_was_set:
+#     - requested_slot: goal
+#   - slot_was_set:
+#     - goal: finish the rasa tutorial
+#   - slot_was_set:
+#     - requested_slot: null
+#   - active_loop: null
+#   - action: action_submit_results
+#   - action: utter_slots_values
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: ask_movie
+#   - action: utter_suggest_movie
+#   - intent: affirm
+#   - action: utter_ask_movie_genre
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: ask_movie
+#   - action: utter_suggest_movie
+#   - intent: affirm
+#   - action: utter_ask_movie_genre
+#   - intent: inform
+#     entities:
+#     - movie: western
+#   - slot_was_set:
+#     - movie: western
+#   - action: action_find_movie
+#   - intent: thankyou
+#   - action: utter_no_worries
+#   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: ask_movie
+#   - action: utter_suggest_movie
+#   - intent: affirm
+#   - action: utter_ask_movie_genre
+#   - intent: inform
+#     entities:
+#     - movie: Crime
+#   - slot_was_set:
+#     - movie: Crime
+#   - action: action_find_movie
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: ask_movie
+#   - action: utter_suggest_movie
+#   - intent: affirm
+#   - action: utter_ask_movie_genre
+#   - intent: inform
+#     entities:
+#     - movie: romance
+#   - slot_was_set:
+#     - movie: romance
+#   - action: action_find_movie
+#   - intent: thankyou
+#   - action: utter_no_worries
+#   - action: utter_goodbye
+#   - intent: stop
+
+# - story: interactive_story_2
+#   steps:
+#   - intent: ask_movie
+#   - action: utter_suggest_movie
+#   - intent: affirm
+#   - action: utter_ask_movie_genre
+#   - intent: inform
+#     entities:
+#     - movie: action
+#   - slot_was_set:
+#     - movie: action
+#   - action: action_find_movie
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: inform
+#     entities:
+#     - movie: western
+#   - slot_was_set:
+#     - movie: western
+#   - action: action_find_movie
+#   - intent: inform
+#     entities:
+#     - movie: adventure
+#   - slot_was_set:
+#     - movie: adventure
+#   - action: action_find_movie
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: inform
+#     entities:
+#     - movie: comedy
+#   - slot_was_set:
+#     - movie: comedy
+#   - action: action_find_movie
+#   - intent: inform- story: interactive_story_1
+#   steps:
+#   - intent: ask_movie
+#   - action: utter_suggest_movie
+#   - intent: affirm
+#   - action: utter_ask_movie_genre
+#   - intent: inform
+#     entities:
+#     - movie: Crime
+#   - slot_was_set:
+#     - movie: Crime
+#   - action: action_find_movie
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: ask_movie
+#   - action: utter_suggest_movie
+#   - intent: affirm
+#   - action: utter_ask_movie_genre
+#   - intent: inform
+#     entities:
+#     - movie: romance
+#   - slot_was_set:
+#     - movie: romance
+#   - action: action_find_movie
+#   - intent: thankyou
+#   - action: utter_no_worries
+#   - action: utter_goodbye
+#   - intent: stop
+
+# - story: interactive_story_2
+#   steps:
+#   - intent: ask_movie
+#   - action: utter_suggest_movie
+#   - intent: affirm
+#   - action: utter_ask_movie_genre
+#   - intent: inform
+#     entities:
+#     - movie: action
+#   - slot_was_set:
+#     - movie: action
+#   - action: action_find_movie
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: inform
+#     entities:
+#     - movie: western
+#   - slot_was_set:
+#     - movie: western
+#   - action: action_find_movie
+#   - intent: inform
+#     entities:
+#     - movie: adventure
+#   - slot_was_set:
+#     - movie: adventure
+#   - action: action_find_movie
+#     entities:
+#     - movie: animation
+#   - slot_was_set:
+#     - movie: animation
+#   - action: action_find_movie
+#   - intent: thankyou
+#   - action: utter_no_worries
+#   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: inform
+#     entities:
+#     - movie: comedy
+#   - slot_was_set:
+#     - movie: comedy
+#   - action: action_find_movie
+#   - intent: inform
+#     entities:
+#     - movie: animation
+#   - slot_was_set:
+#     - movie: animation
+#   - action: action_find_movie
+#   - intent: inform
+#     entities:
+#     - movie: thriller
+#   - slot_was_set:
+#     - movie: thriller
+#   - action: action_find_movie
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: ask_movie
+#     entities:
+#     - movie: thriller
+#   - slot_was_set:
+#     - movie: thriller
+#   - action: action_find_movie
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: ask_movie
+#   - action: utter_suggest_movie
+#   - intent: affirm
+#   - action: utter_ask_movie_genre
+#   - intent: inform
+#     entities:
+#     - movie: animation
+#   - slot_was_set:
+#     - movie: animation
+#   - action: action_find_movie
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: ask_movie
+#   - action: utter_suggest_movie
+#   - intent: affirm
+#   - action: utter_ask_movie_genre
+#   - intent: inform
+#     entities:
+#     - movie: romance
+#   - slot_was_set:
+#     - movie: romance
+#   - action: action_find_movie
+
+# - story: interactive_story_2
+#   steps:
+#   - intent: inform
+#     entities:
+#     - movie: comedy
+#   - slot_was_set:
+#     - movie: comedy
+#   - action: action_find_movie
+#   - intent: thankyou
+#   - action: utter_no_worries
+#   - action: utter_goodbye
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: inform
+#     entities:
+#     - movie: comedy
+#   - slot_was_set:
+#     - movie: comedy
+#   - action: action_find_movie
+
+- story: no_such_genres
   steps:
-  - intent: greet
-  - action: utter_greet
+  - intent: inform
+    entities:
+    - movie: __other__
+  - slot_was_set:
+    - movie: __other__
+  - action: utter_ask_continue
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_movie
+    entities:
+    - movie: abc
+  - slot_was_set:
+    - movie: abc
+  - action: utter_ask_continue
+  - intent: inform
+    entities:
+    - movie: thriller
+  - slot_was_set:
+    - movie: thriller
+  - action: action_find_movie
+  - intent: ask_movie
+  - action: utter_suggest_movie
   - intent: affirm
-  - action: health_form
-  - active_loop: health_form
-  - intent: out_of_scope
+  - action: utter_ask_movie_genre
+  - intent: inform
+    entities:
+    - movie: vibsdivbiebchhc ie iue
+  - slot_was_set:
+    - movie: vibsdivbiebchhc ie iue
   - action: utter_ask_continue
   - intent: affirm
-  - action: health_form
-- story: no survey
+  - action: utter_ask_movie_genre
+  - intent: inform
+    entities:
+    - movie: drama
+  - slot_was_set:
+    - movie: drama
+  - action: action_find_movie
+
+- story: interactive_story_1
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: deny
-  - action: utter_goodbye
+  - intent: ask_movie
+    entities:
+    - movie: sbebviuweb owbibvoefvoi
+  - slot_was_set:
+    - movie: sbebviuweb owbibvoefvoi
+  - action: utter_ask_continue
+
+- story: interactive_story_2
+  steps:
+  - intent: ask_movie
+    entities:
+    - movie: history
+  - slot_was_set:
+    - movie: history
+  - action: action_find_movie
+
+# - story: interactive_story_3
+#   steps:
+#   - intent: ask_movie
+#   - action: utter_suggest_movie
+#   - intent: affirm
+#   - action: utter_ask_movie_genre
+#   - intent: inform
+#     entities:
+#     - movie: history
+#   - slot_was_set:
+#     - movie: history
+#   - action: action_find_movie
+
+# - story: interactive_story_4
+#   steps:
+#   - intent: ask_movie
+#     entities:
+#     - movie: documentary
+#   - slot_was_set:
+#     - movie: documentary
+#   - action: action_find_movie
+
+# - story: interactive_story_5
+#   steps:
+#   - intent: ask_movie
+#     entities:
+#     - movie: science fiction
+#   - slot_was_set:
+#     - movie: science fiction
+#   - action: action_find_movie
+
+# - story: interactive_story_6
+#   steps:
+#   - intent: ask_movie
+#     entities:
+#     - movie: mystery
+#   - slot_was_set:
+#     - movie: mystery
+#   - action: action_find_movie
+
+# - story: interactive_story_7
+#   steps:
+#   - intent: inform
+#   - action: utter_ask_continue
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: ask_movie
+#     entities:
+#     - movie: war
+#   - slot_was_set:
+#     - movie: war
+#   - action: action_find_movie
+
+# - story: interactive_story_2
+#   steps:
+#   - intent: ask_movie
+#   - action: utter_suggest_movie
+#   - intent: inform
+#     entities:
+#     - movie: war
+#   - slot_was_set:
+#     - movie: war
+#   - action: action_find_movie
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: ask_movie
+#     entities:
+#     - movie: war
+#   - slot_was_set:
+#     - movie: war
+#   - action: action_find_movie
+#   - intent: inform
+#     entities:
+#     - movie: music
+#   - slot_was_set:
+#     - movie: music
+#   - action: action_find_movie
+#   - intent: inform
+#     entities:
+#     - movie: documentary
+#   - slot_was_set:
+#     - movie: documentary
+#   - action: action_find_movie
+
+# - story: interactive_story_1
+#   steps:
+#   - intent: ask_movie
+#     entities:
+#     - movie: documentary
+#   - slot_was_set:
+#     - movie: documentary
+#   - action: action_find_movie
 
 - story: interactive_story_1
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: ask_movie
+    entities:
+    - movie: romance
+  - slot_was_set:
+    - movie: romance
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: war
+  - slot_was_set:
+    - movie_key: war
+  - action: action_find_movie
+
+- story: interactive_story_2
+  steps:
+  - intent: ask_movie
+    entities:
+    - movie: documentary
+  - slot_was_set:
+    - movie: documentary
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: 1970s
+  - slot_was_set:
+    - movie_key: 1970s
+  - action: action_find_movie
+
+- story: interactive_story_3
+  steps:
+  - intent: inform
+    entities:
+    - movie: action
+  - slot_was_set:
+    - movie: action
+  - action: utter_ask_movie_key
+  - intent: deny
+  - action: action_find_movie
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_movie
+    entities:
+    - movie: romance
+  - slot_was_set:
+    - movie: romance
+  - action: utter_ask_movie_key
+  - intent: deny
+  - action: action_find_movie
+
+- story: interactive_story_2
+  steps:
+  - intent: ask_movie
+    entities:
+    - movie: war
+  - slot_was_set:
+    - movie: war
+  - action: utter_ask_movie_key
+  - intent: deny
+  - action: action_find_movie
+
+- story: interactive_story_3
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
   - intent: affirm
-  - action: health_form
-  - active_loop: health_form
+  - action: utter_ask_movie_genre
+  - intent: inform
+    entities:
+    - movie: comedy
   - slot_was_set:
-    - requested_slot: confirm_exercise
+    - movie: comedy
+  - action: utter_ask_movie_key
+  - intent: deny
+  - action: action_find_movie
+
+- story: interactive_story_4
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
+
+- story: interactive_story_5
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: affirm
+  - action: utter_ask_movie_genre
+  - intent: ask_movie
+    entities:
+    - movie: horror
   - slot_was_set:
-    - confirm_exercise: true
+    - movie: horror
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: zombies
   - slot_was_set:
-    - requested_slot: exercise
+    - movie_key: zombies
+  - action: action_find_movie
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: affirm
+  - action: utter_ask_movie_genre
+  - intent: inform
+    entities:
+    - movie: thriller
   - slot_was_set:
-    - exercise: hiking
+    - movie: thriller
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: zombie
   - slot_was_set:
-    - exercise: hiking
+    - movie_key: zombie
+  - action: action_find_movie
+
+- story: interactive_story_2
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: affirm
+  - action: utter_ask_movie_genre
+  - intent: inform_key
+    entities:
+    - movie: comedy
   - slot_was_set:
-    - requested_slot: sleep
+    - movie: comedy
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: 1970s
   - slot_was_set:
-    - sleep: 8 hours
+    - movie_key: 1970s
+  - action: action_find_movie
+
+- story: interactive_story_3
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: affirm
+  - action: utter_ask_movie_genre
+  - intent: inform
+    entities:
+    - movie: action
   - slot_was_set:
-    - sleep: 8 hours
+    - movie: action
+  - action: utter_ask_movie_key
+  - intent: deny
+  - action: action_find_movie
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: affirm
+  - action: utter_ask_movie_genre
+  - intent: ask_movie
+    entities:
+    - movie: adventure
   - slot_was_set:
-    - requested_slot: stress
+    - movie: adventure
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: police
   - slot_was_set:
-    - stress: high
+    - movie_key: police
+  - action: action_find_movie
+  - intent: inform
+    entities:
+    - movie: horror
   - slot_was_set:
-    - stress: high
+    - movie: horror
+  - action: utter_ask_movie_key
+  - intent: deny
+  - action: action_find_movie
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: affirm
+  - action: utter_ask_movie_genre
+  - intent: inform
+    entities:
+    - movie: war
   - slot_was_set:
-    - requested_slot: diet
+    - movie: war
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: 1980s
   - slot_was_set:
-    - diet: no
+    - movie_key: 1980s
+  - action: action_find_movie
+
+- story: interactive_story_2
+  steps:
+  - intent: ask_movie
+    entities:
+    - movie: war
   - slot_was_set:
-    - requested_slot: goal
+    - movie: war
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: question
   - slot_was_set:
-    - goal: finish the rasa tutorial
+    - movie_key: question
+  - action: action_find_movie
+
+- story: interactive_story_3
+  steps:
+  - intent: inform
+    entities:
+    - movie: action
   - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: action_submit_results
-  - action: utter_slots_values
+    - movie: action
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: Chinese
+  - slot_was_set:
+    - movie_key: Chinese
+  - action: action_find_movie
+
+- story: interactive_story_4
+  steps:
+  - intent: ask_movie
+    entities:
+    - movie: war
+  - slot_was_set:
+    - movie: war
+  - action: utter_ask_movie_key
+  - intent: deny
+  - action: action_find_movie
+  - intent: inform
+    entities:
+    - movie: comedy
+  - slot_was_set:
+    - movie: comedy
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: United States
+  - slot_was_set:
+    - movie_key: United States
+  - action: action_find_movie
+
+- story: interactive_story_5
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: affirm
+  - action: utter_ask_movie_genre
+  - intent: inform
+    entities:
+    - movie: comedy
+  - slot_was_set:
+    - movie: comedy
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: 1970s
+  - slot_was_set:
+    - movie_key: 1970s
+  - action: action_find_movie
+
+- story: interactive_story_6
+  steps:
+  - intent: inform
+    entities:
+    - movie: comedy
+  - slot_was_set:
+    - movie: comedy
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: old
+  - slot_was_set:
+    - movie_key: old
+  - action: action_find_movie
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: affirm
+  - action: utter_ask_movie_genre
+  - intent: inform
+    entities:
+    - movie: war
+  - slot_was_set:
+    - movie: war
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: United States
+  - slot_was_set:
+    - movie_key: United States
+  - action: action_find_movie
+
+- story: interactive_story_2
+  steps:
+  - intent: ask_movie
+    entities:
+    - movie: comedy
+  - slot_was_set:
+    - movie: comedy
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: old
+  - slot_was_set:
+    - movie_key: old
+  - action: action_find_movie
+
+- story: interactive_story_3
+  steps:
+  - intent: inform
+    entities:
+    - movie: action
+  - slot_was_set:
+    - movie: action
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: political
+  - slot_was_set:
+    - movie_key: political
+  - action: action_find_movie
+
+- story: interactive_story_4
+  steps:
+  - intent: inform
+    entities:
+    - movie: action
+  - slot_was_set:
+    - movie: action
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: controversial
+  - slot_was_set:
+    - movie_key: controversial
+  - action: action_find_movie
+
+- story: interactive_story_5
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: affirm
+  - action: utter_ask_movie_genre
+  - intent: inform
+    entities:
+    - movie: comedy
+  - slot_was_set:
+    - movie: comedy
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: French
+  - slot_was_set:
+    - movie_key: French
+  - action: action_find_movie
+
+- story: interactive_story_1
+  steps:
+  - intent: inform
+    entities:
+    - movie: comedy
+  - slot_was_set:
+    - movie: comedy
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: old
+  - slot_was_set:
+    - movie_key: old
+  - action: action_find_movie
+
+- story: interactive_story_2
+  steps:
+  - intent: ask_movie
+  - action: utter_suggest_movie
+  - intent: inform
+    entities:
+    - movie: action
+  - slot_was_set:
+    - movie: action
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: political
+  - slot_was_set:
+    - movie_key: political
+  - action: action_find_movie
+
+- story: interactive_story_3
+  steps:
+  - intent: inform
+    entities:
+    - movie: action
+  - slot_was_set:
+    - movie: action
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: superhero
+  - slot_was_set:
+    - movie_key: superhero
+  - action: action_find_movie
+
+- story: interactive_story_1
+  steps:
+  - intent: inform
+    entities:
+    - movie: adventure
+  - slot_was_set:
+    - movie: adventure
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: new
+  - slot_was_set:
+    - movie_key: new
+  - action: action_find_movie
+
+- story: interactive_story_1
+  steps:
+  - intent: inform
+    entities:
+    - movie: comedy
+  - slot_was_set:
+    - movie: comedy
+  - action: utter_ask_movie_key
+  - intent: inform_key
+    entities:
+    - movie_key: ghost
+  - slot_was_set:
+    - movie_key: ghost
+  - action: action_find_movie
 
 - story: interactive_story_1
   steps:
