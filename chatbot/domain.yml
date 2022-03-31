@@ -13,16 +13,23 @@ intents:
 - checkHealth
 - inform
 - wantHealthInfo
+- inform_key
+- ask_movie
+- affirm
+- deny
 - greet
-- goodbye
-- bot_challenge
 - thankyou
+- goodbye
+- stop
+- bot_challenge
 - out_of_scope
 - ask_lower_stress
 - ask_eat_healthy
 - ask_exercise
 entities:
 - exercise
+- movie
+- movie_key
 - sleep
 - stress
 slots:
@@ -45,6 +52,31 @@ slots:
     type: any
     influence_conversation: false
   confirm_symptoms:
+    type: any
+    influence_conversation: false
+  movie:
+    type: categorical
+    influence_conversation: true
+    values:
+    - action
+    - advanture
+    - western
+    - animation
+    - crime
+    - fantasy
+    - thriller
+    - comedy
+    - family
+    - drama
+    - romance
+    - history
+    - horror
+    - science fiction
+    - mystery
+    - war
+    - music
+    - documentary
+  movie_key:
     type: any
     influence_conversation: false
 responses:
@@ -131,7 +163,14 @@ responses:
   - text: Most healthy adults should aim to get about 150 min of moderate exercise per week. This includes activities like a brisk walk or yard work.
   utter_diet_info:
   - text: A healthy diet includes fruits and vegetables, whole grains, dairy, lean protein, and plant-based fats. While there is room in a healthy diet for treats, added sugar should be eaten sparingly. Aim for a variety of foods, and balance.
+  utter_suggest_movie:
+  - text: Sure I have some movies to recommend! :) Would you like some?
+  utter_ask_movie_genre:
+  - text: What genre of movies do you like?
+  utter_ask_movie_key:
+  - text: Is there any keyword you would like to look for in the movie recommendation?
 actions:
+- action_find_movie
 - action_submit_results
 - ask_extra
 - ask_more_advices
@@ -150,6 +189,11 @@ actions:
 - utter_randomJoke
 - utter_slots_values
 - utter_thanks
+- utter_ask_continue
+- utter_ask_movie_genre
+- utter_ask_movie_key
+- utter_no_worries
+- utter_suggest_movie
 forms:
   health_form:
     confirm_symptoms:

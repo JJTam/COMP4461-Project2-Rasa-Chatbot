@@ -1,25 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="src/Chatroom.scss">
-    <link rel="stylesheet" type="text/css" href="./index.css">
-    <title>Chatroom Example</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo_only.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="32x32"
+      href="/img/logo_only.svg"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="16x16"
+      href="/img/logo_only.svg"
+    />
+    <title>QuadruBot</title>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link rel="stylesheet" type="text/css" href="static/css/materialize.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Main css-->
+    <link rel="stylesheet" type="text/css" href="static/css/home.css" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <div class="chat-container"></div>
-    <script src="src/Chatroom.js"></script>
-<script type="text/javascript">
-window.chatroom = new window.Chatroom({
-  title: "Chat with a bot",
-  container: document.querySelector(".chat-container"),
-  welcomeMessage: "Nice to meet you.",
-  host: "http://localhost:5005",
-  speechRecognition: "en-US",
-  voiceLang: "en-US"
-});
-window.chatroom.openChat();
-</script>
+    <div class="container">
+      <div class="left-container">
+        <div class="layout-1 flex">
+          <div class="layout-2 flex">
+            <div class="left-top-icon">
+              <img src="static/img/icon.svg" />
+            </div>
+          </div>
+          <div class="left-middle-container">
+            <div class="topic-container">
+              <h1 class="title">
+                Your Virtual Partner in Self-Quarantine
+              </h1>
+              <h5 class="description">
+                The next big thing starts here. Start chatting with QuadruBot to
+                search for everything you need in self-quarantine
+              </h5>
+            </div>
+            <div class="button-group-container btn-group">
+            
+                <div style="display: flex">
+                    <div class="button1">
+                    <a href="/chats" class="btn-flat-custom btn-text"
+                    ><h5 class="btn-text">Start a chat</h5></a
+                  >
+                  <a href="" class="btn-reverse btn-text"
+                    ><h5 class="btn-text">Learn more</h5></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="right-background-layout">
+          <img
+            class="right-background-layout"
+            src="static/img/background.png"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--Main Script -->
+    <script type="text/javascript" src=""></script>
   </body>
 </html>
